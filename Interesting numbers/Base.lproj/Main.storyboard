@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -16,13 +17,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Interesting Numbers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0GV-kv-lCt">
-                                <rect key="frame" x="62.666666666666657" y="128.33333333333337" width="268" height="33.666666666666657"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Interesting Numbers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0GV-kv-lCt">
+                                <rect key="frame" x="62.666666666666657" y="128.33333333333334" width="268" height="33.666666666666657"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="DiceImage" translatesAutoresizingMaskIntoConstraints="NO" id="pwK-RA-jgI">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DiceImage" translatesAutoresizingMaskIntoConstraints="NO" id="pwK-RA-jgI">
                                 <rect key="frame" x="106.66666666666669" y="298" width="180" height="144"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="144" id="Q7w-3d-KTO"/>
@@ -152,7 +153,7 @@
                                     <color key="baseBackgroundColor" red="0.50196078431372548" green="0.20000000000000001" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                 </buttonConfiguration>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="This App about facts of Numbers and Dates" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="26I-PI-7cO">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This App about facts of Numbers and Dates" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="26I-PI-7cO">
                                 <rect key="frame" x="63.666666666666657" y="170" width="265.66666666666674" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="307" id="PIo-KJ-25d"/>
@@ -168,7 +169,6 @@
                             <constraint firstItem="dTc-W9-QUR" firstAttribute="top" secondItem="jYK-td-ZqF" secondAttribute="bottom" constant="5" id="0NZ-zP-IpE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uff-7G-7Fe" secondAttribute="trailing" constant="16" id="1kk-ud-Cyi"/>
                             <constraint firstItem="dTc-W9-QUR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="24i-HO-7aC"/>
-                            <constraint firstItem="1S4-Px-okX" firstAttribute="top" relation="lessThanOrEqual" secondItem="pwK-RA-jgI" secondAttribute="bottom" constant="85" id="7vS-L6-vVk"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dTc-W9-QUR" secondAttribute="trailing" constant="16" id="9Nc-lg-e1g"/>
                             <constraint firstItem="pwK-RA-jgI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="EHe-cS-pgA"/>
                             <constraint firstItem="uff-7G-7Fe" firstAttribute="top" secondItem="dTc-W9-QUR" secondAttribute="bottom" constant="16" id="HZg-K7-CIP"/>
@@ -176,6 +176,7 @@
                             <constraint firstItem="jYK-td-ZqF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="SsP-qa-5jD"/>
                             <constraint firstItem="1S4-Px-okX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="U2b-Rg-qeX"/>
                             <constraint firstItem="jYK-td-ZqF" firstAttribute="top" secondItem="1S4-Px-okX" secondAttribute="bottom" constant="25" id="XeG-YM-dcb"/>
+                            <constraint firstItem="0GV-kv-lCt" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="69.333333333333371" id="Xzk-8f-Wox"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="uff-7G-7Fe" secondAttribute="bottom" constant="34" id="hZl-Y4-qf5"/>
                             <constraint firstItem="0GV-kv-lCt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kbh-RP-XYY"/>
                             <constraint firstItem="26I-PI-7cO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lCv-aQ-Ri7"/>
@@ -188,7 +189,6 @@
                                 <exclude reference="9Nc-lg-e1g"/>
                                 <exclude reference="hZl-Y4-qf5"/>
                                 <exclude reference="Ja3-kQ-uUK"/>
-                                <exclude reference="7vS-L6-vVk"/>
                                 <exclude reference="XeG-YM-dcb"/>
                                 <exclude reference="0NZ-zP-IpE"/>
                                 <exclude reference="24i-HO-7aC"/>
@@ -203,7 +203,6 @@
                                 <include reference="hZl-Y4-qf5"/>
                                 <include reference="nnB-za-Nsw"/>
                                 <include reference="Ja3-kQ-uUK"/>
-                                <include reference="7vS-L6-vVk"/>
                                 <include reference="XeG-YM-dcb"/>
                                 <include reference="0NZ-zP-IpE"/>
                                 <include reference="24i-HO-7aC"/>
