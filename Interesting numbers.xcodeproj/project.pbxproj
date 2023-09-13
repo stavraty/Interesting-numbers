@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F02622942AAF21C000B68802 /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02622932AAF21C000B68802 /* TextViewController.swift */; };
+		F081917D2AB1914400FE187D /* NumberFactService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F081917C2AB1914400FE187D /* NumberFactService.swift */; };
 		F093803F2AA8824A000E0049 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F093803E2AA8824A000E0049 /* AppDelegate.swift */; };
 		F09380412AA8824A000E0049 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09380402AA8824A000E0049 /* SceneDelegate.swift */; };
 		F09380432AA8824A000E0049 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09380422AA8824A000E0049 /* MainViewController.swift */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		F02622932AAF21C000B68802 /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
+		F081917C2AB1914400FE187D /* NumberFactService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFactService.swift; sourceTree = "<group>"; };
 		F093803B2AA8824A000E0049 /* Interesting numbers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Interesting numbers.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F093803E2AA8824A000E0049 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F09380402AA8824A000E0049 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 				F09380402AA8824A000E0049 /* SceneDelegate.swift */,
 				F09380422AA8824A000E0049 /* MainViewController.swift */,
 				F02622932AAF21C000B68802 /* TextViewController.swift */,
+				F081917C2AB1914400FE187D /* NumberFactService.swift */,
 				F09380442AA8824A000E0049 /* Main.storyboard */,
 				F09380472AA8824E000E0049 /* Assets.xcassets */,
 				F09380492AA8824E000E0049 /* LaunchScreen.storyboard */,
@@ -144,6 +147,7 @@
 				F09380432AA8824A000E0049 /* MainViewController.swift in Sources */,
 				F093803F2AA8824A000E0049 /* AppDelegate.swift in Sources */,
 				F09380412AA8824A000E0049 /* SceneDelegate.swift in Sources */,
+				F081917D2AB1914400FE187D /* NumberFactService.swift in Sources */,
 				F02622942AAF21C000B68802 /* TextViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
