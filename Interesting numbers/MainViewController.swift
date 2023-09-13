@@ -23,7 +23,6 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         
         let factService = NumberFactService()
         
-        // Додати жест тапу для ховання клавіатури
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         view.addGestureRecognizer(tapGesture)
 
@@ -81,13 +80,25 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    
+    @IBAction func userNumberButtonTapped(_ sender: Any) {
+    }
+    
+    @IBAction func randomNumberButtonTapped(_ sender: Any) {
+    }
+    
+    @IBAction func numberInARangeButtonTapped(_ sender: Any) {
+    }
+    
+    @IBAction func multipleNumbersButtonTapped(_ sender: Any) {
+    }
+    
+    
     @objc func handleTap() {
-        // Викликати метод приховання клавіатури для numberTextField
         numberTextField.resignFirstResponder()
     }
     
     @objc func keyboardWillShow(notification: Notification) {
-        // Піднести UIScrollView вгору при відображенні клавіатури
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: keyboardSize.height, right: 0.0)
             scrollView.contentInset = contentInsets
@@ -96,7 +107,6 @@ class MainViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc func keyboardWillHide(notification: Notification) {
-        // Повернути UIScrollView до початкового стану при хованні клавіатури
         scrollView.contentInset = UIEdgeInsets.zero
         scrollView.scrollIndicatorInsets = UIEdgeInsets.zero
     }
