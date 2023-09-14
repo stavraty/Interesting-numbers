@@ -28,19 +28,12 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         numberTextField.delegate = self
         
-        configureButton(userNumberButton)
-        configureButton(randomNumberButton)
-        configureButton(numberInARangeButton)
-        configureButton(multipleNumbersButton)
-        
         selectedMode = "userNumber"
+        configureButtons()
+        updatePlaceholderText()
         updateButtonStyle(selectedButton: userNumberButton)
-        
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
-        view.addGestureRecognizer(tapGesture)
-
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        setupTapGesture()
+        registerForKeyboardNotifications()
 
     }
     
@@ -55,23 +48,31 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func configureButton(_ button: UIButton) {
-        // Налаштування бордеру
+    private func configureButtons() {
+        configureButton(userNumberButton)
+        configureButton(randomNumberButton)
+        configureButton(numberInARangeButton)
+        configureButton(multipleNumbersButton)
+    }
+    
+    private func setupTapGesture() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    private func registerForKeyboardNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    private func configureButton(_ button: UIButton) {
         button.layer.borderWidth = 1.0
         button.layer.cornerRadius = 10.0
         button.layer.borderColor = UIColor(red: 0.96, green: 0.94, blue: 0.98, alpha: 1.00).cgColor
-        
-        // Налаштування фону кнопки
         button.backgroundColor = UIColor(red: 0.96, green: 0.94, blue: 0.98, alpha: 1.00)
-        
-        // Встановлення системного шрифту
         let buttonFont = UIFont.systemFont(ofSize: 10.0, weight: .regular)
         button.titleLabel?.font = buttonFont
-        
-        // Встановлення коліру тексту
         button.setTitleColor(UIColor.black, for: .normal)
-        
-        // Налаштування тіні
         button.layer.shadowColor = UIColor.black.cgColor
         button.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
         button.layer.shadowOpacity = 0.2
@@ -80,14 +81,9 @@ class MainViewController: UIViewController, UITextFieldDelegate {
 
 
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if selectedMode == "multipleNumbers" {
-            // Дозвольте тільки цифри і кому в текстовому полі.
             let allowedCharacters = CharacterSet(charactersIn: "0123456789,")
             let characterSet = CharacterSet(charactersIn: string)
             return allowedCharacters.isSuperset(of: characterSet)
-        } else {
-            return true
-        }
     }
     
     @IBAction func displayFactButtonTapped(_ sender: UIButton) {
@@ -119,7 +115,7 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func updateButtonStyle(selectedButton: UIButton) {
+    private func updateButtonStyle(selectedButton: UIButton) {
 
         userNumberButton.backgroundColor = (selectedButton == userNumberButton) ? selectedColor : unselectedColor
         userNumberButton.tintColor = (selectedButton == userNumberButton) ? selectedTextColor : unselectedTextColor
@@ -134,26 +130,49 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         multipleNumbersButton.tintColor = (selectedButton == multipleNumbersButton) ? selectedTextColor : unselectedTextColor
     }
     
+    private func updatePlaceholderText() {
+        switch selectedMode {
+        case "userNumber":
+            numberTextField.placeholder = "Just write any number here..."
+        case "multipleNumbers":
+            numberTextField.placeholder = "Write several numbers separated by a comma"
+        case "randomNumber":
+            numberTextField.placeholder = "Click the button below"
+        case "numberInARange":
+            numberTextField.placeholder = "Write the range of min, max values separated by a comma"
+        default:
+            numberTextField.placeholder = ""
+        }
+    }
+    
     @IBAction func userNumberButtonTapped(_ sender: Any) {
         selectedMode = "userNumber"
         updateButtonStyle(selectedButton: userNumberButton)
+        updatePlaceholderText()
     }
     
     @IBAction func randomNumberButtonTapped(_ sender: Any) {
         selectedMode = "randomNumber"
         updateButtonStyle(selectedButton: randomNumberButton)
+        updatePlaceholderText()
     }
     
     @IBAction func numberInARangeButtonTapped(_ sender: Any) {
         selectedMode = "numberInARange"
         updateButtonStyle(selectedButton: numberInARangeButton)
+        updatePlaceholderText()
     }
     
     @IBAction func multipleNumbersButtonTapped(_ sender: Any) {
         selectedMode = "multipleNumbers"
         updateButtonStyle(selectedButton: multipleNumbersButton)
+        updatePlaceholderText()
     }
     
+    private func resetNumberTextField() {
+        numberTextField.text = ""
+        updatePlaceholderText()
+    }
     
     @objc func handleTap() {
         numberTextField.resignFirstResponder()

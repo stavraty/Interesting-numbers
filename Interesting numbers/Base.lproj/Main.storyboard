@@ -18,11 +18,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="ucf-uo-Ko1">
-                                <rect key="frame" x="-3" y="-4" width="416" height="900"/>
+                                <rect key="frame" x="-4" y="-5" width="417" height="900"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This App about facts of Numbers and Dates" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="26I-PI-7cO">
-                                        <rect key="frame" x="58" y="93.5" width="300" height="43"/>
+                                        <rect key="frame" x="58.5" y="93.5" width="300" height="43"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="300" id="J4c-Ji-mPh"/>
                                         </constraints>
@@ -171,7 +171,7 @@
                                         </constraints>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Interesting Numbers" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0GV-kv-lCt">
-                                        <rect key="frame" x="58" y="50" width="300" height="33.5"/>
+                                        <rect key="frame" x="58.5" y="50" width="300" height="33.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="300" id="xQ8-cq-Isu"/>
                                         </constraints>
@@ -189,7 +189,7 @@
                                             </mask>
                                         </variation>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dTc-W9-QUR">
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Just write any number here..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dTc-W9-QUR">
                                         <rect key="frame" x="40" y="636" width="330" height="44"/>
                                         <color key="backgroundColor" red="0.98083370920000001" green="0.96713715789999999" blue="0.99053007360000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -205,7 +205,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DiceImage" translatesAutoresizingMaskIntoConstraints="NO" id="pwK-RA-jgI">
-                                        <rect key="frame" x="118" y="299.5" width="180" height="144"/>
+                                        <rect key="frame" x="118.5" y="299.5" width="180" height="144"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="180" id="GwM-le-FhQ"/>
                                             <constraint firstAttribute="height" constant="144" id="atC-3i-a6Q"/>
