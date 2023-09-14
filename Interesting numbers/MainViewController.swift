@@ -26,7 +26,6 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         view.addGestureRecognizer(tapGesture)
 
-        // Встановіть UIScrollView для відстеження клавіатури
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
@@ -82,15 +81,31 @@ class MainViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func userNumberButtonTapped(_ sender: Any) {
+        userNumberButton.backgroundColor = UIColor(red: 0.50, green: 0.20, blue: 0.80, alpha: 1.00)
+        randomNumberButton.backgroundColor = UIColor(red: 0.96, green: 0.94, blue: 0.98, alpha: 1.00)
+        numberInARangeButton.backgroundColor = UIColor(red: 0.96, green: 0.94, blue: 0.98, alpha: 1.00)
+        multipleNumbersButton.backgroundColor = UIColor(red: 0.96, green: 0.94, blue: 0.98, alpha: 1.00)
     }
     
     @IBAction func randomNumberButtonTapped(_ sender: Any) {
+        userNumberButton.backgroundColor = UIColor(red: 0.96, green: 0.94, blue: 0.98, alpha: 1.00)
+        randomNumberButton.backgroundColor = UIColor(red: 0.50, green: 0.20, blue: 0.80, alpha: 1.00)
+        numberInARangeButton.backgroundColor = UIColor(red: 0.96, green: 0.94, blue: 0.98, alpha: 1.00)
+        multipleNumbersButton.backgroundColor = UIColor(red: 0.96, green: 0.94, blue: 0.98, alpha: 1.00)
     }
     
     @IBAction func numberInARangeButtonTapped(_ sender: Any) {
+        userNumberButton.backgroundColor = UIColor(red: 0.96, green: 0.94, blue: 0.98, alpha: 1.00)
+        randomNumberButton.backgroundColor = UIColor(red: 0.96, green: 0.94, blue: 0.98, alpha: 1.00)
+        numberInARangeButton.backgroundColor = UIColor(red: 0.50, green: 0.20, blue: 0.80, alpha: 1.00)
+        multipleNumbersButton.backgroundColor = UIColor(red: 0.96, green: 0.94, blue: 0.98, alpha: 1.00)
     }
     
     @IBAction func multipleNumbersButtonTapped(_ sender: Any) {
+        userNumberButton.backgroundColor = UIColor(red: 0.96, green: 0.94, blue: 0.98, alpha: 1.00)
+        randomNumberButton.backgroundColor = UIColor(red: 0.96, green: 0.94, blue: 0.98, alpha: 1.00)
+        numberInARangeButton.backgroundColor = UIColor(red: 0.96, green: 0.94, blue: 0.98, alpha: 1.00)
+        multipleNumbersButton.backgroundColor = UIColor(red: 0.50, green: 0.20, blue: 0.80, alpha: 1.00)
     }
     
     

@@ -27,8 +27,7 @@ class TextViewController: UIViewController {
     }
     
     @IBAction func closeButtonTapped(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.navigationController?.popViewController(animated: true)
+        print("closeButtonTapped")
     }
 }
