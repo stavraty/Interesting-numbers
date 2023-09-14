@@ -41,6 +41,5 @@ class TextViewController: UIViewController {
     
     @IBAction func closeButtonTapped(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
-        print("closeButtonTapped")
     }
 }

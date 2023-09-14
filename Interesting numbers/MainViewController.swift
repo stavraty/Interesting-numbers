@@ -87,28 +87,43 @@ class MainViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func displayFactButtonTapped(_ sender: UIButton) {
-        // Переконайтесь, що поле для введення числа не пусте
+        // Переконайтесь, що поле для введення числа не порожнє і встановіть введене число
         guard let numberText = numberTextField.text, !numberText.isEmpty else {
-            // Обробка ситуації, коли поле для введення числа порожнє
+            // Якщо поле порожнє, встановіть numberText як "random" (для випадку "randomNumber")
+            // Або можна виконати вибірку "random/trivia" без числа, якщо такий вибір відповідає логіці вашого сервісу.
+            // Ось як це можна зробити:
+            let factType = "trivia" // Ви можете використовувати "random/trivia" для отримання випадкового факту
+            factService.getFact(number: "random", type: factType) { [weak self] result in
+                switch result {
+                case .success(let fact):
+                    // Переход до іншого контролера після отримання факту
+                    DispatchQueue.main.async {
+                        self?.performSegue(withIdentifier: "showTextFactsSegue", sender: fact)
+                    }
+                case .failure(let error):
+                    // Обробка помилки
+                    DispatchQueue.main.async {
+                        // Виведіть повідомлення про помилку на екран
+                        print("Error: \(error)")
+                    }
+                }
+            }
             return
         }
 
-        // Отримати тип факту (наприклад, "trivia", "math", тощо) на ваш вибір
-        let factType = "trivia" // Замініть це на вибраний вами тип факту
-        
-        // Викликати NumberFactService для отримання факту
-        let factService = NumberFactService()
+        // Якщо поле не порожнє і ви ввели число, використовуйте ваш поточний спосіб отримання факту
+        let factType = "trivia" // Встановіть тип факту на ваш вибір
         factService.getFact(number: numberText, type: factType) { [weak self] result in
             switch result {
             case .success(let fact):
-                // Переход до другого контролера після отримання факту
+                // Переход до іншого контролера після отримання факту
                 DispatchQueue.main.async {
                     self?.performSegue(withIdentifier: "showTextFactsSegue", sender: fact)
                 }
             case .failure(let error):
-                // Обробити помилку
+                // Обробка помилки
                 DispatchQueue.main.async {
-                    // Вивести повідомлення про помилку на екран
+                    // Виведіть повідомлення про помилку на екран
                     print("Error: \(error)")
                 }
             }
@@ -139,7 +154,7 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         case "randomNumber":
             numberTextField.placeholder = "Click the button below"
         case "numberInARange":
-            numberTextField.placeholder = "Write the range of min, max values separated by a comma"
+            numberTextField.placeholder = "Write the range of min, max values through ,"
         default:
             numberTextField.placeholder = ""
         }
@@ -148,25 +163,25 @@ class MainViewController: UIViewController, UITextFieldDelegate {
     @IBAction func userNumberButtonTapped(_ sender: Any) {
         selectedMode = "userNumber"
         updateButtonStyle(selectedButton: userNumberButton)
-        updatePlaceholderText()
+        resetNumberTextField()
     }
     
     @IBAction func randomNumberButtonTapped(_ sender: Any) {
         selectedMode = "randomNumber"
         updateButtonStyle(selectedButton: randomNumberButton)
-        updatePlaceholderText()
+        resetNumberTextField()
     }
     
     @IBAction func numberInARangeButtonTapped(_ sender: Any) {
         selectedMode = "numberInARange"
         updateButtonStyle(selectedButton: numberInARangeButton)
-        updatePlaceholderText()
+        resetNumberTextField()
     }
     
     @IBAction func multipleNumbersButtonTapped(_ sender: Any) {
         selectedMode = "multipleNumbers"
         updateButtonStyle(selectedButton: multipleNumbersButton)
-        updatePlaceholderText()
+        resetNumberTextField()
     }
     
     private func resetNumberTextField() {
