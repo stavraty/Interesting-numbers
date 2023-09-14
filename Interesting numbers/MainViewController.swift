@@ -23,6 +23,11 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         
         let factService = NumberFactService()
         
+        configureButton(userNumberButton)
+        configureButton(randomNumberButton)
+        configureButton(numberInARangeButton)
+        configureButton(multipleNumbersButton)
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         view.addGestureRecognizer(tapGesture)
 
@@ -39,6 +44,23 @@ class MainViewController: UIViewController, UITextFieldDelegate {
                 print(factText)
             }
         }
+    }
+    
+    func configureButton(_ button: UIButton) {
+        // Налаштування бордеру
+        button.layer.borderWidth = 1.0
+        button.layer.cornerRadius = 10.0
+        button.layer.borderColor = UIColor(red: 0.96, green: 0.94, blue: 0.98, alpha: 1.00).cgColor // Колір бордеру
+        
+        // Налаштування фону кнопки
+        button.backgroundColor = UIColor(red: 0.96, green: 0.94, blue: 0.98, alpha: 1.00) // Ваш колір фону
+        button.tintColor = UIColor.black // Колір тексту та іконок на кнопці (зазвичай чорний або інший контрастний колір)
+        
+        // Налаштування тіні
+        button.layer.shadowColor = UIColor.black.cgColor // Колір тіні
+        button.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+        button.layer.shadowOpacity = 0.2
+        button.layer.shadowRadius = 2.0
     }
 
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -82,6 +104,7 @@ class MainViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func userNumberButtonTapped(_ sender: Any) {
         userNumberButton.backgroundColor = UIColor(red: 0.50, green: 0.20, blue: 0.80, alpha: 1.00)
+        userNumberButton.tintColor = UIColor.white
         randomNumberButton.backgroundColor = UIColor(red: 0.96, green: 0.94, blue: 0.98, alpha: 1.00)
         numberInARangeButton.backgroundColor = UIColor(red: 0.96, green: 0.94, blue: 0.98, alpha: 1.00)
         multipleNumbersButton.backgroundColor = UIColor(red: 0.96, green: 0.94, blue: 0.98, alpha: 1.00)
