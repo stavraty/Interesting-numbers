@@ -63,7 +63,13 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         
         // Налаштування фону кнопки
         button.backgroundColor = UIColor(red: 0.96, green: 0.94, blue: 0.98, alpha: 1.00)
-        button.tintColor = UIColor.black
+        
+        // Встановлення системного шрифту
+        let buttonFont = UIFont.systemFont(ofSize: 10.0, weight: .regular)
+        button.titleLabel?.font = buttonFont
+        
+        // Встановлення коліру тексту
+        button.setTitleColor(UIColor.black, for: .normal)
         
         // Налаштування тіні
         button.layer.shadowColor = UIColor.black.cgColor
@@ -71,6 +77,7 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         button.layer.shadowOpacity = 0.2
         button.layer.shadowRadius = 2.0
     }
+
 
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if selectedMode == "multipleNumbers" {

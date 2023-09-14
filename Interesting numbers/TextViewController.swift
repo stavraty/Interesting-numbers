@@ -21,9 +21,22 @@ class TextViewController: UIViewController {
         super.viewDidLoad()
         
         closeButton.setTitle("", for: .normal)
-        
         numberLabel.text = numberText
         factTextView.text = factText
+        configureFactTextView()
+    }
+    
+    private func configureFactTextView() {
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = 10
+
+        let attributes: [NSAttributedString.Key: Any] = [
+            .paragraphStyle: paragraphStyle,
+            .font: UIFont(name: "Helvetica-Bold", size: 16)!,
+            .foregroundColor: UIColor.white
+        ]
+
+        factTextView.attributedText = NSAttributedString(string: factTextView.text, attributes: attributes)
     }
     
     @IBAction func closeButtonTapped(_ sender: Any) {

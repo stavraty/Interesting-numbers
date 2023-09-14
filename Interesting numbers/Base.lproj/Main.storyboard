@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5tB-MU-ciY">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -14,15 +14,15 @@
             <objects>
                 <viewController storyboardIdentifier="MainViewController" id="BYZ-38-t0r" customClass="MainViewController" customModule="Interesting_numbers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="ucf-uo-Ko1">
-                                <rect key="frame" x="-2" y="-3" width="395" height="856"/>
+                                <rect key="frame" x="-3" y="-4" width="416" height="900"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This App about facts of Numbers and Dates" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="26I-PI-7cO">
-                                        <rect key="frame" x="47.666666666666657" y="93.666666666666671" width="300" height="43.000000000000014"/>
+                                        <rect key="frame" x="58" y="93.5" width="300" height="43"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="300" id="J4c-Ji-mPh"/>
                                         </constraints>
@@ -62,9 +62,16 @@
                                                     </attributedString>
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
-                                                <buttonConfiguration key="configuration" style="tinted" title="User number">
-                                                    <fontDescription key="titleFontDescription" type="system" pointSize="10"/>
-                                                    <color key="baseBackgroundColor" red="0.98083370920000001" green="0.96713715789999999" blue="0.99053007360000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <buttonConfiguration key="configuration" style="tinted">
+                                                    <attributedString key="attributedTitle">
+                                                        <fragment content="User number">
+                                                            <attributes>
+                                                                <font key="NSFont" size="12" name="Helvetica"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <color key="baseBackgroundColor" red="0.98039215686274506" green="0.96862745098039216" blue="0.99215686274509807" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </buttonConfiguration>
                                                 <connections>
                                                     <action selector="userNumberButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fev-fU-A1h"/>
@@ -88,8 +95,15 @@
                                                     </attributedString>
                                                     <color key="titleColor" red="0.1764705882352941" green="0.1764705882352941" blue="0.1764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
-                                                <buttonConfiguration key="configuration" style="tinted" title="Random number">
-                                                    <fontDescription key="titleFontDescription" type="system" pointSize="10"/>
+                                                <buttonConfiguration key="configuration" style="tinted">
+                                                    <attributedString key="attributedTitle">
+                                                        <fragment content="Random number">
+                                                            <attributes>
+                                                                <font key="NSFont" size="12" name="Helvetica"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
                                                     <color key="baseBackgroundColor" red="0.98039215686274506" green="0.96862745098039216" blue="0.99215686274509807" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </buttonConfiguration>
                                                 <connections>
@@ -103,8 +117,15 @@
                                                 </constraints>
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="tinted" title="Number in a range">
-                                                    <fontDescription key="titleFontDescription" type="system" pointSize="10"/>
+                                                <buttonConfiguration key="configuration" style="tinted">
+                                                    <attributedString key="attributedTitle">
+                                                        <fragment content="Number in a range">
+                                                            <attributes>
+                                                                <font key="NSFont" size="12" name="Helvetica"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
                                                     <color key="baseBackgroundColor" red="0.98083370920000001" green="0.96713715789999999" blue="0.99053007360000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </buttonConfiguration>
                                                 <connections>
@@ -129,8 +150,15 @@
                                                     </attributedString>
                                                     <color key="titleColor" red="0.1764705882" green="0.1764705882" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
-                                                <buttonConfiguration key="configuration" style="tinted" title="Multiple numbers">
-                                                    <fontDescription key="titleFontDescription" type="system" pointSize="10"/>
+                                                <buttonConfiguration key="configuration" style="tinted">
+                                                    <attributedString key="attributedTitle">
+                                                        <fragment content="Multiple numbers">
+                                                            <attributes>
+                                                                <font key="NSFont" size="12" name="Helvetica"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
                                                     <color key="baseBackgroundColor" red="0.98083370920000001" green="0.96713715789999999" blue="0.99053007360000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </buttonConfiguration>
                                                 <connections>
@@ -143,7 +171,7 @@
                                         </constraints>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Interesting Numbers" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0GV-kv-lCt">
-                                        <rect key="frame" x="47.666666666666657" y="50" width="300" height="33.666666666666657"/>
+                                        <rect key="frame" x="58" y="50" width="300" height="33.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="300" id="xQ8-cq-Isu"/>
                                         </constraints>
@@ -177,7 +205,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DiceImage" translatesAutoresizingMaskIntoConstraints="NO" id="pwK-RA-jgI">
-                                        <rect key="frame" x="107.66666666666669" y="277.66666666666669" width="180" height="144"/>
+                                        <rect key="frame" x="118" y="299.5" width="180" height="144"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="180" id="GwM-le-FhQ"/>
                                             <constraint firstAttribute="height" constant="144" id="atC-3i-a6Q"/>
@@ -272,28 +300,25 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="l2m-Ze-am0" customClass="TextViewController" customModule="Interesting_numbers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pkm-gq-Ksb">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="z17-e1-nqN">
-                                <rect key="frame" x="16" y="173" width="361" height="596"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="white" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="z17-e1-nqN">
+                                <rect key="frame" x="16" y="161.5" width="382" height="651.5"/>
                                 <color key="backgroundColor" red="0.50703936819999995" green="0.24599644540000001" blue="0.80126100779999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <string key="text">The word "hundred" is actually derived from the Old Norse word "hundrath," which actually means 120, not 100. More specifically, "hundrath," in Old Norse, means "long hundred," which equals 120, due to the duodecimal system. But good luck trying to argue that your $100 bill is worth 20 percent more than it is.</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mzg-qL-IJ8">
-                                <rect key="frame" x="146.66666666666666" y="109" width="100" height="34"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="xXL-hD-RSJ"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mzg-qL-IJ8">
+                                <rect key="frame" x="16" y="98" width="382" height="33.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cPX-u3-7wL">
-                                <rect key="frame" x="328" y="59" width="45" height="45"/>
+                                <rect key="frame" x="349" y="48" width="45" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="Zst-C0-86d"/>
                                     <constraint firstAttribute="height" constant="45" id="lpu-iG-4M7"/>
@@ -310,10 +335,12 @@
                         <constraints>
                             <constraint firstItem="z17-e1-nqN" firstAttribute="top" secondItem="mzg-qL-IJ8" secondAttribute="bottom" constant="30" id="1pB-ft-18G"/>
                             <constraint firstItem="mzg-qL-IJ8" firstAttribute="top" secondItem="4ef-4g-aMH" secondAttribute="top" constant="50" id="48A-al-NsU"/>
+                            <constraint firstItem="mzg-qL-IJ8" firstAttribute="leading" secondItem="4ef-4g-aMH" secondAttribute="leading" constant="16" id="Feq-QB-AS7"/>
                             <constraint firstItem="cPX-u3-7wL" firstAttribute="top" secondItem="4ef-4g-aMH" secondAttribute="top" id="Gzn-Mh-KbY"/>
                             <constraint firstItem="z17-e1-nqN" firstAttribute="leading" secondItem="4ef-4g-aMH" secondAttribute="leading" constant="16" id="Oas-qt-MTT"/>
                             <constraint firstItem="4ef-4g-aMH" firstAttribute="trailing" secondItem="cPX-u3-7wL" secondAttribute="trailing" constant="20" id="SMA-gA-Jys"/>
                             <constraint firstItem="4ef-4g-aMH" firstAttribute="trailing" secondItem="z17-e1-nqN" secondAttribute="trailing" constant="16" id="Ysx-Ti-njv"/>
+                            <constraint firstItem="4ef-4g-aMH" firstAttribute="trailing" secondItem="mzg-qL-IJ8" secondAttribute="trailing" constant="16" id="bS0-5W-Ja4"/>
                             <constraint firstItem="4ef-4g-aMH" firstAttribute="bottom" secondItem="z17-e1-nqN" secondAttribute="bottom" id="cKv-D6-plN"/>
                             <constraint firstItem="mzg-qL-IJ8" firstAttribute="centerX" secondItem="pkm-gq-Ksb" secondAttribute="centerX" id="rMh-DV-K9y"/>
                         </constraints>
@@ -321,20 +348,20 @@
                             <mask key="constraints">
                                 <exclude reference="Ysx-Ti-njv"/>
                                 <exclude reference="cKv-D6-plN"/>
-                                <exclude reference="1pB-ft-18G"/>
-                                <exclude reference="Oas-qt-MTT"/>
                                 <exclude reference="48A-al-NsU"/>
                                 <exclude reference="rMh-DV-K9y"/>
+                                <exclude reference="1pB-ft-18G"/>
+                                <exclude reference="Oas-qt-MTT"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="constraints">
                                 <include reference="Ysx-Ti-njv"/>
                                 <include reference="cKv-D6-plN"/>
-                                <include reference="1pB-ft-18G"/>
-                                <include reference="Oas-qt-MTT"/>
                                 <include reference="48A-al-NsU"/>
                                 <include reference="rMh-DV-K9y"/>
+                                <include reference="1pB-ft-18G"/>
+                                <include reference="Oas-qt-MTT"/>
                             </mask>
                         </variation>
                     </view>
@@ -349,7 +376,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iTg-Cp-jCM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1795.6521739130437" y="-32.142857142857139"/>
+            <point key="canvasLocation" x="1794.6564885496182" y="-32.394366197183103"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="98H-Wz-Neq">
