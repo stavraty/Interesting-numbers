@@ -33,6 +33,9 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         configureButton(numberInARangeButton)
         configureButton(multipleNumbersButton)
         
+        selectedMode = "userNumber"
+        updateButtonStyle(selectedButton: userNumberButton)
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
         view.addGestureRecognizer(tapGesture)
 
