@@ -17,11 +17,16 @@ class MainViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var displayFactButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
     
+    let factService = NumberFactService()
+    var selectedMode: String?
+    let selectedColor = UIColor(red: 0.50, green: 0.20, blue: 0.80, alpha: 1.00)
+    let unselectedColor = UIColor(red: 0.96, green: 0.94, blue: 0.98, alpha: 1.00)
+    let selectedTextColor = UIColor.white
+    let unselectedTextColor = UIColor.black
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         numberTextField.delegate = self
-        
-        let factService = NumberFactService()
         
         configureButton(userNumberButton)
         configureButton(randomNumberButton)
@@ -33,10 +38,11 @@ class MainViewController: UIViewController, UITextFieldDelegate {
 
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "ShowFactSegue" {
+        if segue.identifier == "showTextFactsSegue" {
             if let destinationVC = segue.destination as? TextViewController,
                let factText = sender as? String {
                 destinationVC.factText = factText
@@ -50,26 +56,28 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         // Налаштування бордеру
         button.layer.borderWidth = 1.0
         button.layer.cornerRadius = 10.0
-        button.layer.borderColor = UIColor(red: 0.96, green: 0.94, blue: 0.98, alpha: 1.00).cgColor // Колір бордеру
+        button.layer.borderColor = UIColor(red: 0.96, green: 0.94, blue: 0.98, alpha: 1.00).cgColor
         
         // Налаштування фону кнопки
-        button.backgroundColor = UIColor(red: 0.96, green: 0.94, blue: 0.98, alpha: 1.00) // Ваш колір фону
-        button.tintColor = UIColor.black // Колір тексту та іконок на кнопці (зазвичай чорний або інший контрастний колір)
+        button.backgroundColor = UIColor(red: 0.96, green: 0.94, blue: 0.98, alpha: 1.00)
+        button.tintColor = UIColor.black
         
         // Налаштування тіні
-        button.layer.shadowColor = UIColor.black.cgColor // Колір тіні
+        button.layer.shadowColor = UIColor.black.cgColor
         button.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
         button.layer.shadowOpacity = 0.2
         button.layer.shadowRadius = 2.0
     }
 
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        // Визначте набір дозволених символів (в цьому випадку, це цифри).
-        let allowedCharacters = CharacterSet.decimalDigits
-        
-        // Перевірте, чи всі символи в рядку заміни є дозволеними.
-        let characterSet = CharacterSet(charactersIn: string)
-        return allowedCharacters.isSuperset(of: characterSet)
+        if selectedMode == "multipleNumbers" {
+            // Дозвольте тільки цифри і кому в текстовому полі.
+            let allowedCharacters = CharacterSet(charactersIn: "0123456789,")
+            let characterSet = CharacterSet(charactersIn: string)
+            return allowedCharacters.isSuperset(of: characterSet)
+        } else {
+            return true
+        }
     }
     
     @IBAction func displayFactButtonTapped(_ sender: UIButton) {
@@ -101,34 +109,39 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    func updateButtonStyle(selectedButton: UIButton) {
+
+        userNumberButton.backgroundColor = (selectedButton == userNumberButton) ? selectedColor : unselectedColor
+        userNumberButton.tintColor = (selectedButton == userNumberButton) ? selectedTextColor : unselectedTextColor
+        
+        randomNumberButton.backgroundColor = (selectedButton == randomNumberButton) ? selectedColor : unselectedColor
+        randomNumberButton.tintColor = (selectedButton == randomNumberButton) ? selectedTextColor : unselectedTextColor
+
+        numberInARangeButton.backgroundColor = (selectedButton == numberInARangeButton) ? selectedColor : unselectedColor
+        numberInARangeButton.tintColor = (selectedButton == numberInARangeButton) ? selectedTextColor : unselectedTextColor
+        
+        multipleNumbersButton.backgroundColor = (selectedButton == multipleNumbersButton) ? selectedColor : unselectedColor
+        multipleNumbersButton.tintColor = (selectedButton == multipleNumbersButton) ? selectedTextColor : unselectedTextColor
+    }
     
     @IBAction func userNumberButtonTapped(_ sender: Any) {
-        userNumberButton.backgroundColor = UIColor(red: 0.50, green: 0.20, blue: 0.80, alpha: 1.00)
-        userNumberButton.tintColor = UIColor.white
-        randomNumberButton.backgroundColor = UIColor(red: 0.96, green: 0.94, blue: 0.98, alpha: 1.00)
-        numberInARangeButton.backgroundColor = UIColor(red: 0.96, green: 0.94, blue: 0.98, alpha: 1.00)
-        multipleNumbersButton.backgroundColor = UIColor(red: 0.96, green: 0.94, blue: 0.98, alpha: 1.00)
+        selectedMode = "userNumber"
+        updateButtonStyle(selectedButton: userNumberButton)
     }
     
     @IBAction func randomNumberButtonTapped(_ sender: Any) {
-        userNumberButton.backgroundColor = UIColor(red: 0.96, green: 0.94, blue: 0.98, alpha: 1.00)
-        randomNumberButton.backgroundColor = UIColor(red: 0.50, green: 0.20, blue: 0.80, alpha: 1.00)
-        numberInARangeButton.backgroundColor = UIColor(red: 0.96, green: 0.94, blue: 0.98, alpha: 1.00)
-        multipleNumbersButton.backgroundColor = UIColor(red: 0.96, green: 0.94, blue: 0.98, alpha: 1.00)
+        selectedMode = "randomNumber"
+        updateButtonStyle(selectedButton: randomNumberButton)
     }
     
     @IBAction func numberInARangeButtonTapped(_ sender: Any) {
-        userNumberButton.backgroundColor = UIColor(red: 0.96, green: 0.94, blue: 0.98, alpha: 1.00)
-        randomNumberButton.backgroundColor = UIColor(red: 0.96, green: 0.94, blue: 0.98, alpha: 1.00)
-        numberInARangeButton.backgroundColor = UIColor(red: 0.50, green: 0.20, blue: 0.80, alpha: 1.00)
-        multipleNumbersButton.backgroundColor = UIColor(red: 0.96, green: 0.94, blue: 0.98, alpha: 1.00)
+        selectedMode = "numberInARange"
+        updateButtonStyle(selectedButton: numberInARangeButton)
     }
     
     @IBAction func multipleNumbersButtonTapped(_ sender: Any) {
-        userNumberButton.backgroundColor = UIColor(red: 0.96, green: 0.94, blue: 0.98, alpha: 1.00)
-        randomNumberButton.backgroundColor = UIColor(red: 0.96, green: 0.94, blue: 0.98, alpha: 1.00)
-        numberInARangeButton.backgroundColor = UIColor(red: 0.96, green: 0.94, blue: 0.98, alpha: 1.00)
-        multipleNumbersButton.backgroundColor = UIColor(red: 0.50, green: 0.20, blue: 0.80, alpha: 1.00)
+        selectedMode = "multipleNumbers"
+        updateButtonStyle(selectedButton: multipleNumbersButton)
     }
     
     

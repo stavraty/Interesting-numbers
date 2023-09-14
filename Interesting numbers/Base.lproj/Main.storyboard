@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="ucf-uo-Ko1">
-                                <rect key="frame" x="-2" y="-3" width="395" height="857"/>
+                                <rect key="frame" x="-2" y="-3" width="395" height="856"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This App about facts of Numbers and Dates" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="26I-PI-7cO">
@@ -62,17 +62,8 @@
                                                     </attributedString>
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
-                                                <buttonConfiguration key="configuration" style="tinted">
-                                                    <attributedString key="attributedTitle">
-                                                        <fragment content="User number">
-                                                            <attributes>
-                                                                <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                                <font key="NSFont" size="12" name="Helvetica-Bold"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="charWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                    </attributedString>
-                                                    <color key="baseForegroundColor" red="0.1764705882352941" green="0.1764705882352941" blue="0.1764705882352941" alpha="1" colorSpace="calibratedRGB"/>
+                                                <buttonConfiguration key="configuration" style="tinted" title="User number">
+                                                    <fontDescription key="titleFontDescription" type="system" pointSize="10"/>
                                                     <color key="baseBackgroundColor" red="0.98083370920000001" green="0.96713715789999999" blue="0.99053007360000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </buttonConfiguration>
                                                 <connections>
@@ -97,16 +88,8 @@
                                                     </attributedString>
                                                     <color key="titleColor" red="0.1764705882352941" green="0.1764705882352941" blue="0.1764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
-                                                <buttonConfiguration key="configuration" style="tinted">
-                                                    <attributedString key="attributedTitle">
-                                                        <fragment content="Random number">
-                                                            <attributes>
-                                                                <font key="NSFont" size="12" name="Helvetica-Bold"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                    </attributedString>
-                                                    <color key="baseForegroundColor" red="0.1764705882352941" green="0.1764705882352941" blue="0.1764705882352941" alpha="1" colorSpace="calibratedRGB"/>
+                                                <buttonConfiguration key="configuration" style="tinted" title="Random number">
+                                                    <fontDescription key="titleFontDescription" type="system" pointSize="10"/>
                                                     <color key="baseBackgroundColor" red="0.98039215686274506" green="0.96862745098039216" blue="0.99215686274509807" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </buttonConfiguration>
                                                 <connections>
@@ -120,17 +103,8 @@
                                                 </constraints>
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="tinted" titleAlignment="center">
-                                                    <attributedString key="attributedTitle">
-                                                        <fragment content="Number in a range">
-                                                            <attributes>
-                                                                <font key="NSFont" size="12" name="Helvetica-Bold"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                    </attributedString>
-                                                    <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
-                                                    <color key="baseForegroundColor" red="0.1764705882" green="0.1764705882" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
+                                                <buttonConfiguration key="configuration" style="tinted" title="Number in a range">
+                                                    <fontDescription key="titleFontDescription" type="system" pointSize="10"/>
                                                     <color key="baseBackgroundColor" red="0.98083370920000001" green="0.96713715789999999" blue="0.99053007360000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </buttonConfiguration>
                                                 <connections>
@@ -155,16 +129,8 @@
                                                     </attributedString>
                                                     <color key="titleColor" red="0.1764705882" green="0.1764705882" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
-                                                <buttonConfiguration key="configuration" style="tinted">
-                                                    <attributedString key="attributedTitle">
-                                                        <fragment content="Multiple numbers">
-                                                            <attributes>
-                                                                <font key="NSFont" size="12" name="Helvetica-Bold"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                            </attributes>
-                                                        </fragment>
-                                                    </attributedString>
-                                                    <color key="baseForegroundColor" red="0.1764705882" green="0.1764705882" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
+                                                <buttonConfiguration key="configuration" style="tinted" title="Multiple numbers">
+                                                    <fontDescription key="titleFontDescription" type="system" pointSize="10"/>
                                                     <color key="baseBackgroundColor" red="0.98083370920000001" green="0.96713715789999999" blue="0.99053007360000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </buttonConfiguration>
                                                 <connections>
@@ -211,7 +177,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DiceImage" translatesAutoresizingMaskIntoConstraints="NO" id="pwK-RA-jgI">
-                                        <rect key="frame" x="107.66666666666669" y="278" width="180" height="144"/>
+                                        <rect key="frame" x="107.66666666666669" y="277.66666666666669" width="180" height="144"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="180" id="GwM-le-FhQ"/>
                                             <constraint firstAttribute="height" constant="144" id="atC-3i-a6Q"/>
