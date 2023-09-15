@@ -78,21 +78,28 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         button.layer.shadowRadius = 2.0
     }
     
-    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let allowedCharacters = CharacterSet(charactersIn: "0123456789,")
+        let characterSet = CharacterSet(charactersIn: string)
+        
+        guard allowedCharacters.isSuperset(of: characterSet) else {
+            return false
+        }
+        
         if selectedMode == "numberInARange" {
             let futureText = (textField.text as NSString?)?.replacingCharacters(in: range, with: string) ?? string
-            return futureText.count <= 10 && (futureText.contains(",") || futureText.allSatisfy { "0123456789".contains($0) })
-        } else {
-            let allowedCharacters = CharacterSet(charactersIn: "0123456789,")
-            let characterSet = CharacterSet(charactersIn: string)
-            return allowedCharacters.isSuperset(of: characterSet)
+            let commaCount = futureText.filter { $0 == "," }.count
+            
+            return commaCount <= 1 && futureText.count <= 10
         }
+        
+        return true
     }
+
     
     @IBAction func displayFactButtonTapped(_ sender: UIButton) {
         guard let mode = selectedMode else {
-            print("Error: No mode selected.")
+            showAlert(with: "Error", message: "Mode not selected")
             return
         }
         
@@ -110,13 +117,13 @@ class MainViewController: UIViewController, UITextFieldDelegate {
             fetchFactForUserNumber()
             
         default:
-            print("Error: Unknown mode.")
+            showAlert(with: "Error", message: "Unknown mode")
         }
     }
     
     func fetchFactForUserNumber() {
         guard let numberText = numberTextField.text, !numberText.isEmpty else {
-            print("Error: User number is empty.")
+            showAlert(with: "Error", message: "User number is empty")
             return
         }
         fetchFactForNumber(numberText, type: "trivia")
@@ -125,22 +132,27 @@ class MainViewController: UIViewController, UITextFieldDelegate {
     func fetchFactForRandomNumber() {
         fetchFactForNumber("random", type: "trivia")
     }
-
+    
     func fetchFactForNumberInRange() {
         guard let rangeText = numberTextField.text, !rangeText.isEmpty else {
-            print("Error: Range is empty.")
+            showAlert(with: "Error", message: "The range is empty")
             return
         }
 
-        let numbers = rangeText.split(separator: ",").map { String($0) }
+        let numbers = rangeText.split(separator: ",").map { String($0).trimmingCharacters(in: .whitespaces) }
 
-        guard numbers.count == 2 else {
-            print("Error: Invalid range format. Expected format: min,max")
+        guard numbers.count == 2, let minInt = Int(numbers[0]), let maxInt = Int(numbers[1]) else {
+            showAlert(with: "Error", message: "Invalid range format. Required format: min,max")
             return
         }
 
-        let min = numbers[0]
-        let max = numbers[1]
+        if maxInt <= minInt {
+            showAlert(with: "Error", message: "The second number must be greater than the first")
+            return
+        }
+
+        let min = "\(minInt)"
+        let max = "\(maxInt)"
 
         factService.getFactInRange(min: min, max: max) { [weak self] result in
             switch result {
@@ -149,9 +161,15 @@ class MainViewController: UIViewController, UITextFieldDelegate {
                     self?.performSegue(withIdentifier: "showTextFactsSegue", sender: fact)
                 }
             case .failure(let error):
-                print("Error: \(error)")
+                print("Помилка: \(error)")
             }
         }
+    }
+
+    func showAlert(with title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "ОК", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
 
     func fetchFactForNumber(_ number: String, type: String) {
@@ -169,7 +187,7 @@ class MainViewController: UIViewController, UITextFieldDelegate {
 
     func fetchFactUsingURL(_ urlString: String) {
         guard let url = URL(string: urlString) else {
-            print("Error: Invalid URL.")
+            showAlert(with: "Error", message: "Invalid URL")
             return
         }
         
@@ -184,7 +202,7 @@ class MainViewController: UIViewController, UITextFieldDelegate {
                     self?.performSegue(withIdentifier: "showTextFactsSegue", sender: fact)
                 }
             } else {
-                print("Error: Unable to fetch fact.")
+                self?.showAlert(with: "Error", message: "Unable to fetch fact")
             }
         }.resume()
     }

@@ -30,13 +30,25 @@ class NumberFactService {
                 return
             }
             
-            if let data = data, let fact = String(data: data, encoding: .utf8) {
+            if let data = data, let rawFact = String(data: data, encoding: .utf8) {
+                let fact = self.formatFacts(from: rawFact)
                 completion(.success(fact))
             } else {
                 completion(.failure(NSError(domain: "NumberFactService", code: 1, userInfo: nil)))
             }
         }.resume()
     }
+    
+    private func formatFacts(from response: String) -> String {
+        guard let data = response.data(using: .utf8),
+              let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: String] else {
+            return response
+        }
+
+        let facts = json.values.map { $0.replacingOccurrences(of: "\"", with: "") }
+        return facts.joined(separator: "\n\n")
+    }
+
 }
 
 
