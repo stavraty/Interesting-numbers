@@ -86,6 +86,10 @@ class MainViewController: UIViewController, UITextFieldDelegate {
             return false
         }
         
+        if selectedMode == "userNumber" {
+            return CharacterSet.decimalDigits.isSuperset(of: characterSet)
+        }
+        
         if selectedMode == "numberInARange" {
             let futureText = (textField.text as NSString?)?.replacingCharacters(in: range, with: string) ?? string
             let commaCount = futureText.filter { $0 == "," }.count
@@ -95,7 +99,6 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         
         return true
     }
-
     
     @IBAction func displayFactButtonTapped(_ sender: UIButton) {
         guard let mode = selectedMode else {

@@ -45,10 +45,14 @@ class NumberFactService {
             return response
         }
 
-        let facts = json.values.map { $0.replacingOccurrences(of: "\"", with: "") }
-        return facts.joined(separator: "\n\n")
+        let sortedFacts = json.sorted { (first, second) -> Bool in
+            guard let firstKey = Int(first.key), let secondKey = Int(second.key) else {
+                return false
+            }
+            return firstKey < secondKey
+        }
+        .map { $0.value.replacingOccurrences(of: "\"", with: "") }
+
+        return sortedFacts.joined(separator: "\n\n")
     }
-
 }
-
-
