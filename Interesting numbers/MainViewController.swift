@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController, UITextFieldDelegate {
+class MainViewController: UIViewController {
     
     @IBOutlet weak var userNumberButton: UIButton!
     @IBOutlet weak var randomNumberButton: UIButton!
@@ -78,28 +78,6 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         button.layer.shadowRadius = 2.0
     }
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let allowedCharacters = CharacterSet(charactersIn: "0123456789,")
-        let characterSet = CharacterSet(charactersIn: string)
-        
-        guard allowedCharacters.isSuperset(of: characterSet) else {
-            return false
-        }
-        
-        if selectedMode == "userNumber" {
-            return CharacterSet.decimalDigits.isSuperset(of: characterSet)
-        }
-        
-        if selectedMode == "numberInARange" {
-            let futureText = (textField.text as NSString?)?.replacingCharacters(in: range, with: string) ?? string
-            let commaCount = futureText.filter { $0 == "," }.count
-            
-            return commaCount <= 1 && futureText.count <= 10
-        }
-        
-        return true
-    }
-    
     @IBAction func displayFactButtonTapped(_ sender: UIButton) {
         guard let mode = selectedMode else {
             showAlert(with: "Error", message: "Mode not selected")
@@ -131,7 +109,7 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         }
         fetchFactForNumber(numberText, type: "trivia")
     }
-
+    
     func fetchFactForRandomNumber() {
         fetchFactForNumber("random", type: "trivia")
     }
@@ -141,22 +119,22 @@ class MainViewController: UIViewController, UITextFieldDelegate {
             showAlert(with: "Error", message: "The range is empty")
             return
         }
-
+        
         let numbers = rangeText.split(separator: ",").map { String($0).trimmingCharacters(in: .whitespaces) }
-
+        
         guard numbers.count == 2, let minInt = Int(numbers[0]), let maxInt = Int(numbers[1]) else {
             showAlert(with: "Error", message: "Invalid range format. Required format: min,max")
             return
         }
-
+        
         if maxInt <= minInt {
             showAlert(with: "Error", message: "The second number must be greater than the first")
             return
         }
-
+        
         let min = "\(minInt)"
         let max = "\(maxInt)"
-
+        
         factService.getFactInRange(min: min, max: max) { [weak self] result in
             switch result {
             case .success(let fact):
@@ -168,13 +146,13 @@ class MainViewController: UIViewController, UITextFieldDelegate {
             }
         }
     }
-
+    
     func showAlert(with title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "ОК", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
     }
-
+    
     func fetchFactForNumber(_ number: String, type: String) {
         factService.getFact(number: number, type: type) { [weak self] result in
             switch result {
@@ -187,7 +165,7 @@ class MainViewController: UIViewController, UITextFieldDelegate {
             }
         }
     }
-
+    
     func fetchFactUsingURL(_ urlString: String) {
         guard let url = URL(string: urlString) else {
             showAlert(with: "Error", message: "Invalid URL")
@@ -290,3 +268,27 @@ class MainViewController: UIViewController, UITextFieldDelegate {
     }
 }
 
+extension MainViewController: UITextFieldDelegate {
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let allowedCharacters = CharacterSet(charactersIn: "0123456789,")
+        let characterSet = CharacterSet(charactersIn: string)
+        
+        guard allowedCharacters.isSuperset(of: characterSet) else {
+            return false
+        }
+        
+        if selectedMode == "userNumber" {
+            return CharacterSet.decimalDigits.isSuperset(of: characterSet)
+        }
+        
+        if selectedMode == "numberInARange" {
+            let futureText = (textField.text as NSString?)?.replacingCharacters(in: range, with: string) ?? string
+            let commaCount = futureText.filter { $0 == "," }.count
+            
+            return commaCount <= 1 && futureText.count <= 10
+        }
+        
+        return true
+    }
+}
