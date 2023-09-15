@@ -34,7 +34,6 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         updateButtonStyle(selectedButton: userNumberButton)
         setupTapGesture()
         registerForKeyboardNotifications()
-
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -78,66 +77,126 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         button.layer.shadowOpacity = 0.2
         button.layer.shadowRadius = 2.0
     }
-
-
+    
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if selectedMode == "numberInARange" {
+            let futureText = (textField.text as NSString?)?.replacingCharacters(in: range, with: string) ?? string
+            return futureText.count <= 10 && (futureText.contains(",") || futureText.allSatisfy { "0123456789".contains($0) })
+        } else {
             let allowedCharacters = CharacterSet(charactersIn: "0123456789,")
             let characterSet = CharacterSet(charactersIn: string)
             return allowedCharacters.isSuperset(of: characterSet)
+        }
     }
     
     @IBAction func displayFactButtonTapped(_ sender: UIButton) {
-        // Переконайтесь, що поле для введення числа не порожнє і встановіть введене число
+        guard let mode = selectedMode else {
+            print("Error: No mode selected.")
+            return
+        }
+        
+        switch mode {
+        case "userNumber":
+            fetchFactForUserNumber()
+            
+        case "randomNumber":
+            fetchFactForRandomNumber()
+            
+        case "numberInARange":
+            fetchFactForNumberInRange()
+            
+        case "multipleNumbers":
+            fetchFactForUserNumber()
+            
+        default:
+            print("Error: Unknown mode.")
+        }
+    }
+    
+    func fetchFactForUserNumber() {
         guard let numberText = numberTextField.text, !numberText.isEmpty else {
-            // Якщо поле порожнє, встановіть numberText як "random" (для випадку "randomNumber")
-            // Або можна виконати вибірку "random/trivia" без числа, якщо такий вибір відповідає логіці вашого сервісу.
-            // Ось як це можна зробити:
-            let factType = "trivia" // Ви можете використовувати "random/trivia" для отримання випадкового факту
-            factService.getFact(number: "random", type: factType) { [weak self] result in
-                switch result {
-                case .success(let fact):
-                    // Переход до іншого контролера після отримання факту
-                    DispatchQueue.main.async {
-                        self?.performSegue(withIdentifier: "showTextFactsSegue", sender: fact)
-                    }
-                case .failure(let error):
-                    // Обробка помилки
-                    DispatchQueue.main.async {
-                        // Виведіть повідомлення про помилку на екран
-                        print("Error: \(error)")
-                    }
-                }
-            }
+            print("Error: User number is empty.")
+            return
+        }
+        fetchFactForNumber(numberText, type: "trivia")
+    }
+
+    func fetchFactForRandomNumber() {
+        fetchFactForNumber("random", type: "trivia")
+    }
+
+    func fetchFactForNumberInRange() {
+        guard let rangeText = numberTextField.text, !rangeText.isEmpty else {
+            print("Error: Range is empty.")
             return
         }
 
-        // Якщо поле не порожнє і ви ввели число, використовуйте ваш поточний спосіб отримання факту
-        let factType = "trivia" // Встановіть тип факту на ваш вибір
-        factService.getFact(number: numberText, type: factType) { [weak self] result in
+        let numbers = rangeText.split(separator: ",").map { String($0) }
+
+        guard numbers.count == 2 else {
+            print("Error: Invalid range format. Expected format: min,max")
+            return
+        }
+
+        let min = numbers[0]
+        let max = numbers[1]
+
+        factService.getFactInRange(min: min, max: max) { [weak self] result in
             switch result {
             case .success(let fact):
-                // Переход до іншого контролера після отримання факту
                 DispatchQueue.main.async {
                     self?.performSegue(withIdentifier: "showTextFactsSegue", sender: fact)
                 }
             case .failure(let error):
-                // Обробка помилки
-                DispatchQueue.main.async {
-                    // Виведіть повідомлення про помилку на екран
-                    print("Error: \(error)")
-                }
+                print("Error: \(error)")
             }
         }
     }
+
+    func fetchFactForNumber(_ number: String, type: String) {
+        factService.getFact(number: number, type: type) { [weak self] result in
+            switch result {
+            case .success(let fact):
+                DispatchQueue.main.async {
+                    self?.performSegue(withIdentifier: "showTextFactsSegue", sender: fact)
+                }
+            case .failure(let error):
+                print("Error: \(error)")
+            }
+        }
+    }
+
+    func fetchFactUsingURL(_ urlString: String) {
+        guard let url = URL(string: urlString) else {
+            print("Error: Invalid URL.")
+            return
+        }
+        
+        URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+            if let error = error {
+                print("Error: \(error)")
+                return
+            }
+            
+            if let data = data, let fact = String(data: data, encoding: .utf8) {
+                DispatchQueue.main.async {
+                    self?.performSegue(withIdentifier: "showTextFactsSegue", sender: fact)
+                }
+            } else {
+                print("Error: Unable to fetch fact.")
+            }
+        }.resume()
+    }
     
     private func updateButtonStyle(selectedButton: UIButton) {
-
+        
         userNumberButton.backgroundColor = (selectedButton == userNumberButton) ? selectedColor : unselectedColor
         userNumberButton.tintColor = (selectedButton == userNumberButton) ? selectedTextColor : unselectedTextColor
         
         randomNumberButton.backgroundColor = (selectedButton == randomNumberButton) ? selectedColor : unselectedColor
         randomNumberButton.tintColor = (selectedButton == randomNumberButton) ? selectedTextColor : unselectedTextColor
-
+        
         numberInARangeButton.backgroundColor = (selectedButton == numberInARangeButton) ? selectedColor : unselectedColor
         numberInARangeButton.tintColor = (selectedButton == numberInARangeButton) ? selectedTextColor : unselectedTextColor
         
@@ -164,29 +223,32 @@ class MainViewController: UIViewController, UITextFieldDelegate {
         selectedMode = "userNumber"
         updateButtonStyle(selectedButton: userNumberButton)
         resetNumberTextField()
+        updatePlaceholderText()
     }
     
     @IBAction func randomNumberButtonTapped(_ sender: Any) {
         selectedMode = "randomNumber"
         updateButtonStyle(selectedButton: randomNumberButton)
         resetNumberTextField()
+        updatePlaceholderText()
     }
     
     @IBAction func numberInARangeButtonTapped(_ sender: Any) {
         selectedMode = "numberInARange"
         updateButtonStyle(selectedButton: numberInARangeButton)
         resetNumberTextField()
+        updatePlaceholderText()
     }
     
     @IBAction func multipleNumbersButtonTapped(_ sender: Any) {
         selectedMode = "multipleNumbers"
         updateButtonStyle(selectedButton: multipleNumbersButton)
         resetNumberTextField()
+        updatePlaceholderText()
     }
     
     private func resetNumberTextField() {
         numberTextField.text = ""
-        updatePlaceholderText()
     }
     
     @objc func handleTap() {

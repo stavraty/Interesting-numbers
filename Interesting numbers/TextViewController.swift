@@ -9,7 +9,6 @@ import UIKit
 
 class TextViewController: UIViewController {
     
-    
     @IBOutlet weak var closeButton: UIButton!
     @IBOutlet weak var numberLabel: UILabel!
     @IBOutlet weak var factTextView: UITextView!
@@ -29,13 +28,13 @@ class TextViewController: UIViewController {
     private func configureFactTextView() {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 10
-
+        
         let attributes: [NSAttributedString.Key: Any] = [
             .paragraphStyle: paragraphStyle,
             .font: UIFont(name: "Helvetica-Bold", size: 16)!,
             .foregroundColor: UIColor.white
         ]
-
+        
         factTextView.attributedText = NSAttributedString(string: factTextView.text, attributes: attributes)
     }
     

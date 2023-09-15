@@ -4,20 +4,26 @@
 //
 //  Created by AS on 13.09.2023.
 //
-
 import Foundation
 
 class NumberFactService {
     
-    // Базовий URL для API
     private let baseURL = "http://numbersapi.com/"
     
-    // Функція для отримання цікавого факту за числом і типом
     func getFact(number: String, type: String, completion: @escaping (Result<String, Error>) -> Void) {
-        // Складаємо URL для запиту
-        let url = URL(string: "\(baseURL)\(number)/\(type)")!
+        getFactUsingURL("\(baseURL)\(number)/\(type)", completion: completion)
+    }
+    
+    func getFactInRange(min: String, max: String, completion: @escaping (Result<String, Error>) -> Void) {
+        getFactUsingURL("\(baseURL)random?min=\(min)&max=\(max)", completion: completion)
+    }
+    
+    private func getFactUsingURL(_ urlString: String, completion: @escaping (Result<String, Error>) -> Void) {
+        guard let url = URL(string: urlString) else {
+            completion(.failure(NSError(domain: "NumberFactService", code: 0, userInfo: nil)))
+            return
+        }
         
-        // Виконуємо запит до API
         URLSession.shared.dataTask(with: url) { data, response, error in
             if let error = error {
                 completion(.failure(error))
@@ -27,9 +33,10 @@ class NumberFactService {
             if let data = data, let fact = String(data: data, encoding: .utf8) {
                 completion(.success(fact))
             } else {
-                completion(.failure(NSError(domain: "NumberFactService", code: 0, userInfo: nil)))
+                completion(.failure(NSError(domain: "NumberFactService", code: 1, userInfo: nil)))
             }
         }.resume()
     }
 }
+
 
