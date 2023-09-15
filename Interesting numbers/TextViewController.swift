@@ -28,7 +28,8 @@ class TextViewController: UIViewController {
     private func configureFactTextView() {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineSpacing = 10
-        
+        paragraphStyle.alignment = .center
+
         let attributes: [NSAttributedString.Key: Any] = [
             .paragraphStyle: paragraphStyle,
             .font: UIFont(name: "Helvetica-Bold", size: 16)!,

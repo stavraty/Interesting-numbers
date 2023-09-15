@@ -47,6 +47,23 @@ class MainViewController: UIViewController {
         }
     }
     
+    @objc func handleTap() {
+        numberTextField.resignFirstResponder()
+    }
+    
+    @objc func keyboardWillShow(notification: Notification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: keyboardSize.height, right: 0.0)
+            scrollView.contentInset = contentInsets
+            scrollView.scrollIndicatorInsets = contentInsets
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: Notification) {
+        scrollView.contentInset = UIEdgeInsets.zero
+        scrollView.scrollIndicatorInsets = UIEdgeInsets.zero
+    }
+    
     private func configureButtons() {
         configureButton(userNumberButton)
         configureButton(randomNumberButton)
@@ -78,31 +95,7 @@ class MainViewController: UIViewController {
         button.layer.shadowRadius = 2.0
     }
     
-    @IBAction func displayFactButtonTapped(_ sender: UIButton) {
-        guard let mode = selectedMode else {
-            showAlert(with: "Error", message: "Mode not selected")
-            return
-        }
-        
-        switch mode {
-        case "userNumber":
-            fetchFactForUserNumber()
-            
-        case "randomNumber":
-            fetchFactForRandomNumber()
-            
-        case "numberInARange":
-            fetchFactForNumberInRange()
-            
-        case "multipleNumbers":
-            fetchFactForUserNumber()
-            
-        default:
-            showAlert(with: "Error", message: "Unknown mode")
-        }
-    }
-    
-    func fetchFactForUserNumber() {
+    private func fetchFactForUserNumber() {
         guard let numberText = numberTextField.text, !numberText.isEmpty else {
             showAlert(with: "Error", message: "User number is empty")
             return
@@ -110,11 +103,11 @@ class MainViewController: UIViewController {
         fetchFactForNumber(numberText, type: "trivia")
     }
     
-    func fetchFactForRandomNumber() {
+    private func fetchFactForRandomNumber() {
         fetchFactForNumber("random", type: "trivia")
     }
     
-    func fetchFactForNumberInRange() {
+    private func fetchFactForNumberInRange() {
         guard let rangeText = numberTextField.text, !rangeText.isEmpty else {
             showAlert(with: "Error", message: "The range is empty")
             return
@@ -147,13 +140,13 @@ class MainViewController: UIViewController {
         }
     }
     
-    func showAlert(with title: String, message: String) {
+    private func showAlert(with title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "ОК", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
     }
     
-    func fetchFactForNumber(_ number: String, type: String) {
+    private func fetchFactForNumber(_ number: String, type: String) {
         factService.getFact(number: number, type: type) { [weak self] result in
             switch result {
             case .success(let fact):
@@ -164,28 +157,6 @@ class MainViewController: UIViewController {
                 print("Error: \(error)")
             }
         }
-    }
-    
-    func fetchFactUsingURL(_ urlString: String) {
-        guard let url = URL(string: urlString) else {
-            showAlert(with: "Error", message: "Invalid URL")
-            return
-        }
-        
-        URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
-            if let error = error {
-                print("Error: \(error)")
-                return
-            }
-            
-            if let data = data, let fact = String(data: data, encoding: .utf8) {
-                DispatchQueue.main.async {
-                    self?.performSegue(withIdentifier: "showTextFactsSegue", sender: fact)
-                }
-            } else {
-                self?.showAlert(with: "Error", message: "Unable to fetch fact")
-            }
-        }.resume()
     }
     
     private func updateButtonStyle(selectedButton: UIButton) {
@@ -215,6 +186,30 @@ class MainViewController: UIViewController {
             numberTextField.placeholder = "Write the range of min, max values through ,"
         default:
             numberTextField.placeholder = ""
+        }
+    }
+    
+    @IBAction func displayFactButtonTapped(_ sender: UIButton) {
+        guard let mode = selectedMode else {
+            showAlert(with: "Error", message: "Mode not selected")
+            return
+        }
+        
+        switch mode {
+        case "userNumber":
+            fetchFactForUserNumber()
+            
+        case "randomNumber":
+            fetchFactForRandomNumber()
+            
+        case "numberInARange":
+            fetchFactForNumberInRange()
+            
+        case "multipleNumbers":
+            fetchFactForUserNumber()
+            
+        default:
+            showAlert(with: "Error", message: "Unknown mode")
         }
     }
     
@@ -248,23 +243,6 @@ class MainViewController: UIViewController {
     
     private func resetNumberTextField() {
         numberTextField.text = ""
-    }
-    
-    @objc func handleTap() {
-        numberTextField.resignFirstResponder()
-    }
-    
-    @objc func keyboardWillShow(notification: Notification) {
-        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            let contentInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: keyboardSize.height, right: 0.0)
-            scrollView.contentInset = contentInsets
-            scrollView.scrollIndicatorInsets = contentInsets
-        }
-    }
-    
-    @objc func keyboardWillHide(notification: Notification) {
-        scrollView.contentInset = UIEdgeInsets.zero
-        scrollView.scrollIndicatorInsets = UIEdgeInsets.zero
     }
 }
 
