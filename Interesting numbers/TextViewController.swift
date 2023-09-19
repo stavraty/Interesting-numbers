@@ -32,7 +32,7 @@ class TextViewController: UIViewController {
 
         let attributes: [NSAttributedString.Key: Any] = [
             .paragraphStyle: paragraphStyle,
-            .font: UIFont(name: "Helvetica-Bold", size: 16)!,
+            .font: UIFont(name: "Helvetica-Bold", size: 16) as Any,
             .foregroundColor: UIColor.white
         ]
         
