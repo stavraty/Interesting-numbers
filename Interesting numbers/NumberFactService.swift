@@ -8,7 +8,7 @@ import Foundation
 
 class NumberFactService {
     
-    private let baseURL = "http://numbersapi.com/"
+    let baseURL = "http://numbersapi.com/"
     
     func getFact(number: String, type: String, completion: @escaping (Result<String, Error>) -> Void) {
         getFactUsingURL("\(baseURL)\(number)/\(type)", completion: completion)

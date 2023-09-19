@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		F02622942AAF21C000B68802 /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02622932AAF21C000B68802 /* TextViewController.swift */; };
 		F081917D2AB1914400FE187D /* NumberFactService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F081917C2AB1914400FE187D /* NumberFactService.swift */; };
+		F08757122AB6149000684ED9 /* Interesting_numbers_Unit_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08757112AB6149000684ED9 /* Interesting_numbers_Unit_Tests.swift */; };
+		F087571F2AB614C900684ED9 /* Interesting_numbers_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F087571E2AB614C900684ED9 /* Interesting_numbers_UITests.swift */; };
 		F093803F2AA8824A000E0049 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F093803E2AA8824A000E0049 /* AppDelegate.swift */; };
 		F09380412AA8824A000E0049 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09380402AA8824A000E0049 /* SceneDelegate.swift */; };
 		F09380432AA8824A000E0049 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09380422AA8824A000E0049 /* MainViewController.swift */; };
@@ -17,9 +19,30 @@
 		F093804B2AA8824E000E0049 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F09380492AA8824E000E0049 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		F08757132AB6149000684ED9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F09380332AA8824A000E0049 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F093803A2AA8824A000E0049;
+			remoteInfo = "Interesting numbers";
+		};
+		F08757222AB614C900684ED9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F09380332AA8824A000E0049 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F093803A2AA8824A000E0049;
+			remoteInfo = "Interesting numbers";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		F02622932AAF21C000B68802 /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
 		F081917C2AB1914400FE187D /* NumberFactService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFactService.swift; sourceTree = "<group>"; };
+		F087570F2AB6148F00684ED9 /* Interesting numbers Unit Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Interesting numbers Unit Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F08757112AB6149000684ED9 /* Interesting_numbers_Unit_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interesting_numbers_Unit_Tests.swift; sourceTree = "<group>"; };
+		F087571C2AB614C900684ED9 /* Interesting numbers UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Interesting numbers UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F087571E2AB614C900684ED9 /* Interesting_numbers_UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interesting_numbers_UITests.swift; sourceTree = "<group>"; };
 		F093803B2AA8824A000E0049 /* Interesting numbers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Interesting numbers.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F093803E2AA8824A000E0049 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F09380402AA8824A000E0049 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,6 +54,20 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		F087570C2AB6148F00684ED9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F08757192AB614C900684ED9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F09380382AA8824A000E0049 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -41,10 +78,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F08757102AB6149000684ED9 /* Interesting numbers Unit Tests */ = {
+			isa = PBXGroup;
+			children = (
+				F08757112AB6149000684ED9 /* Interesting_numbers_Unit_Tests.swift */,
+			);
+			path = "Interesting numbers Unit Tests";
+			sourceTree = "<group>";
+		};
+		F087571D2AB614C900684ED9 /* Interesting numbers UITests */ = {
+			isa = PBXGroup;
+			children = (
+				F087571E2AB614C900684ED9 /* Interesting_numbers_UITests.swift */,
+			);
+			path = "Interesting numbers UITests";
+			sourceTree = "<group>";
+		};
 		F09380322AA8824A000E0049 = {
 			isa = PBXGroup;
 			children = (
 				F093803D2AA8824A000E0049 /* Interesting numbers */,
+				F08757102AB6149000684ED9 /* Interesting numbers Unit Tests */,
+				F087571D2AB614C900684ED9 /* Interesting numbers UITests */,
 				F093803C2AA8824A000E0049 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -53,6 +108,8 @@
 			isa = PBXGroup;
 			children = (
 				F093803B2AA8824A000E0049 /* Interesting numbers.app */,
+				F087570F2AB6148F00684ED9 /* Interesting numbers Unit Tests.xctest */,
+				F087571C2AB614C900684ED9 /* Interesting numbers UITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -76,6 +133,42 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		F087570E2AB6148F00684ED9 /* Interesting numbers Unit Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F08757172AB6149000684ED9 /* Build configuration list for PBXNativeTarget "Interesting numbers Unit Tests" */;
+			buildPhases = (
+				F087570B2AB6148F00684ED9 /* Sources */,
+				F087570C2AB6148F00684ED9 /* Frameworks */,
+				F087570D2AB6148F00684ED9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F08757142AB6149000684ED9 /* PBXTargetDependency */,
+			);
+			name = "Interesting numbers Unit Tests";
+			productName = "Interesting numbers Unit Tests";
+			productReference = F087570F2AB6148F00684ED9 /* Interesting numbers Unit Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F087571B2AB614C900684ED9 /* Interesting numbers UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F08757242AB614C900684ED9 /* Build configuration list for PBXNativeTarget "Interesting numbers UITests" */;
+			buildPhases = (
+				F08757182AB614C900684ED9 /* Sources */,
+				F08757192AB614C900684ED9 /* Frameworks */,
+				F087571A2AB614C900684ED9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F08757232AB614C900684ED9 /* PBXTargetDependency */,
+			);
+			name = "Interesting numbers UITests";
+			productName = "Interesting numbers UITests";
+			productReference = F087571C2AB614C900684ED9 /* Interesting numbers UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		F093803A2AA8824A000E0049 /* Interesting numbers */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F093804F2AA8824E000E0049 /* Build configuration list for PBXNativeTarget "Interesting numbers" */;
@@ -103,6 +196,14 @@
 				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
+					F087570E2AB6148F00684ED9 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = F093803A2AA8824A000E0049;
+					};
+					F087571B2AB614C900684ED9 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = F093803A2AA8824A000E0049;
+					};
 					F093803A2AA8824A000E0049 = {
 						CreatedOnToolsVersion = 14.2;
 					};
@@ -122,11 +223,27 @@
 			projectRoot = "";
 			targets = (
 				F093803A2AA8824A000E0049 /* Interesting numbers */,
+				F087570E2AB6148F00684ED9 /* Interesting numbers Unit Tests */,
+				F087571B2AB614C900684ED9 /* Interesting numbers UITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		F087570D2AB6148F00684ED9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F087571A2AB614C900684ED9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F09380392AA8824A000E0049 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -140,6 +257,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		F087570B2AB6148F00684ED9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F08757122AB6149000684ED9 /* Interesting_numbers_Unit_Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F08757182AB614C900684ED9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F087571F2AB614C900684ED9 /* Interesting_numbers_UITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F09380372AA8824A000E0049 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -153,6 +286,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F08757142AB6149000684ED9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F093803A2AA8824A000E0049 /* Interesting numbers */;
+			targetProxy = F08757132AB6149000684ED9 /* PBXContainerItemProxy */;
+		};
+		F08757232AB614C900684ED9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F093803A2AA8824A000E0049 /* Interesting numbers */;
+			targetProxy = F08757222AB614C900684ED9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		F09380442AA8824A000E0049 /* Main.storyboard */ = {
@@ -174,6 +320,80 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		F08757152AB6149000684ED9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DTNM4439C9;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = fox.Interesting.numbers.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Interesting numbers.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Interesting numbers";
+			};
+			name = Debug;
+		};
+		F08757162AB6149000684ED9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DTNM4439C9;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = fox.Interesting.numbers.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Interesting numbers.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Interesting numbers";
+			};
+			name = Release;
+		};
+		F08757252AB614C900684ED9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DTNM4439C9;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "fox.Interesting.numbers.UItests.Interesting-numbers-UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Interesting numbers";
+			};
+			name = Debug;
+		};
+		F08757262AB614C900684ED9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = DTNM4439C9;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "fox.Interesting.numbers.UItests.Interesting-numbers-UITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Interesting numbers";
+			};
+			name = Release;
+		};
 		F093804D2AA8824E000E0049 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -224,7 +444,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -278,7 +498,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -347,6 +567,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		F08757172AB6149000684ED9 /* Build configuration list for PBXNativeTarget "Interesting numbers Unit Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F08757152AB6149000684ED9 /* Debug */,
+				F08757162AB6149000684ED9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F08757242AB614C900684ED9 /* Build configuration list for PBXNativeTarget "Interesting numbers UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F08757252AB614C900684ED9 /* Debug */,
+				F08757262AB614C900684ED9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F09380362AA8824A000E0049 /* Build configuration list for PBXProject "Interesting numbers" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

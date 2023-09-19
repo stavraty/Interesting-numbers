@@ -11,24 +11,23 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var userNumberButton: UIButton!
     @IBOutlet weak var randomNumberButton: UIButton!
-    @IBOutlet weak var numberInARangeButton: UIButton!
+    @IBOutlet weak var numberInRangeButton: UIButton!
     @IBOutlet weak var multipleNumbersButton: UIButton!
     @IBOutlet weak var numberTextField: UITextField!
     @IBOutlet weak var displayFactButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
     
     let factService = NumberFactService()
-    var selectedMode: String?
-    let selectedColor = UIColor(red: 0.50, green: 0.20, blue: 0.80, alpha: 1.00)
-    let unselectedColor = UIColor(red: 0.96, green: 0.94, blue: 0.98, alpha: 1.00)
+    var selectedMode: String? =  "userNumber"
+    let selectedButtonColor = UIColor(red: 0.50, green: 0.20, blue: 0.80, alpha: 1.00)
+    let unSelectedButtonColor = UIColor(red: 0.96, green: 0.94, blue: 0.98, alpha: 1.00)
     let selectedTextColor = UIColor.white
     let unselectedTextColor = UIColor.black
     
     override func viewDidLoad() {
         super.viewDidLoad()
         numberTextField.delegate = self
-        
-        selectedMode = "userNumber"
+
         configureButtons()
         updatePlaceholderText()
         updateButtonStyle(selectedButton: userNumberButton)
@@ -42,7 +41,6 @@ class MainViewController: UIViewController {
                let factText = sender as? String {
                 destinationVC.factText = factText
                 destinationVC.numberText = numberTextField.text
-                print(factText)
             }
         }
     }
@@ -65,10 +63,13 @@ class MainViewController: UIViewController {
     }
     
     private func configureButtons() {
-        configureButton(userNumberButton)
-        configureButton(randomNumberButton)
-        configureButton(numberInARangeButton)
-        configureButton(multipleNumbersButton)
+        configureDefaultButton(userNumberButton)
+        configureDefaultButton(randomNumberButton)
+        configureDefaultButton(numberInRangeButton)
+        configureDefaultButton(multipleNumbersButton)
+        displayFactButton.backgroundColor = selectedButtonColor
+        displayFactButton.setTitleColor(UIColor.white, for: .normal)
+        displayFactButton.layer.cornerRadius = 10
     }
     
     private func setupTapGesture() {
@@ -81,9 +82,9 @@ class MainViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
-    private func configureButton(_ button: UIButton) {
+    private func configureDefaultButton(_ button: UIButton) {
         button.layer.borderWidth = 1.0
-        button.layer.cornerRadius = 10.0
+        button.layer.cornerRadius = 10
         button.layer.borderColor = UIColor(red: 0.96, green: 0.94, blue: 0.98, alpha: 1.00).cgColor
         button.backgroundColor = UIColor(red: 0.96, green: 0.94, blue: 0.98, alpha: 1.00)
         let buttonFont = UIFont.systemFont(ofSize: 10.0, weight: .regular)
@@ -161,16 +162,16 @@ class MainViewController: UIViewController {
     
     private func updateButtonStyle(selectedButton: UIButton) {
         
-        userNumberButton.backgroundColor = (selectedButton == userNumberButton) ? selectedColor : unselectedColor
+        userNumberButton.backgroundColor = (selectedButton == userNumberButton) ? selectedButtonColor : unSelectedButtonColor
         userNumberButton.tintColor = (selectedButton == userNumberButton) ? selectedTextColor : unselectedTextColor
         
-        randomNumberButton.backgroundColor = (selectedButton == randomNumberButton) ? selectedColor : unselectedColor
+        randomNumberButton.backgroundColor = (selectedButton == randomNumberButton) ? selectedButtonColor : unSelectedButtonColor
         randomNumberButton.tintColor = (selectedButton == randomNumberButton) ? selectedTextColor : unselectedTextColor
         
-        numberInARangeButton.backgroundColor = (selectedButton == numberInARangeButton) ? selectedColor : unselectedColor
-        numberInARangeButton.tintColor = (selectedButton == numberInARangeButton) ? selectedTextColor : unselectedTextColor
+        numberInRangeButton.backgroundColor = (selectedButton == numberInRangeButton) ? selectedButtonColor : unSelectedButtonColor
+        numberInRangeButton.tintColor = (selectedButton == numberInRangeButton) ? selectedTextColor : unselectedTextColor
         
-        multipleNumbersButton.backgroundColor = (selectedButton == multipleNumbersButton) ? selectedColor : unselectedColor
+        multipleNumbersButton.backgroundColor = (selectedButton == multipleNumbersButton) ? selectedButtonColor : unSelectedButtonColor
         multipleNumbersButton.tintColor = (selectedButton == multipleNumbersButton) ? selectedTextColor : unselectedTextColor
     }
     
@@ -183,7 +184,7 @@ class MainViewController: UIViewController {
         case "randomNumber":
             numberTextField.placeholder = "Click the button below"
         case "numberInARange":
-            numberTextField.placeholder = "Write the range of min, max values through ,"
+            numberTextField.placeholder = "Write the range by a comma (min,max)"
         default:
             numberTextField.placeholder = ""
         }
@@ -229,7 +230,7 @@ class MainViewController: UIViewController {
     
     @IBAction func numberInARangeButtonTapped(_ sender: Any) {
         selectedMode = "numberInARange"
-        updateButtonStyle(selectedButton: numberInARangeButton)
+        updateButtonStyle(selectedButton: numberInRangeButton)
         resetNumberTextField()
         updatePlaceholderText()
     }

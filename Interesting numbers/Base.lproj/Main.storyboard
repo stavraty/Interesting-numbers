@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="ucf-uo-Ko1">
-                                <rect key="frame" x="-5" y="-6" width="418" height="900"/>
+                                <rect key="frame" x="-5" y="-6" width="418" height="899"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="This App about facts of Numbers and Dates" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="26I-PI-7cO">
@@ -48,7 +48,7 @@
                                         </variation>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="1S4-Px-okX">
-                                        <rect key="frame" x="44" y="547.5" width="330" height="75"/>
+                                        <rect key="frame" x="44" y="547" width="330" height="75"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="clip" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sTV-TG-5Y6">
                                                 <rect key="frame" x="0.0" y="0.0" width="75" height="75"/>
@@ -61,15 +61,13 @@
                                                     <attributedString key="attributedTitle">
                                                         <fragment content="User number">
                                                             <attributes>
-                                                                <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                                <font key="NSFont" size="13" name="Helvetica-Bold"/>
-                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="charWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                <font key="NSFont" size="12" name="Helvetica"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
                                                     </attributedString>
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
-                                                <buttonConfiguration key="configuration" style="tinted">
+                                                <buttonConfiguration key="configuration" style="plain">
                                                     <attributedString key="attributedTitle">
                                                         <fragment content="User number">
                                                             <attributes>
@@ -78,7 +76,6 @@
                                                             </attributes>
                                                         </fragment>
                                                     </attributedString>
-                                                    <color key="baseBackgroundColor" red="0.98039215686274506" green="0.96862745098039216" blue="0.99215686274509807" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </buttonConfiguration>
                                                 <connections>
                                                     <action selector="userNumberButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fev-fU-A1h"/>
@@ -95,14 +92,13 @@
                                                     <attributedString key="attributedTitle">
                                                         <fragment content="Random number">
                                                             <attributes>
-                                                                <font key="NSFont" size="13" name="Helvetica-Bold"/>
+                                                                <font key="NSFont" size="12" name="Helvetica"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
                                                     </attributedString>
-                                                    <color key="titleColor" red="0.1764705882352941" green="0.1764705882352941" blue="0.1764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
-                                                <buttonConfiguration key="configuration" style="tinted">
+                                                <buttonConfiguration key="configuration" style="plain">
                                                     <attributedString key="attributedTitle">
                                                         <fragment content="Random number">
                                                             <attributes>
@@ -111,20 +107,19 @@
                                                             </attributes>
                                                         </fragment>
                                                     </attributedString>
-                                                    <color key="baseBackgroundColor" red="0.98039215686274506" green="0.96862745098039216" blue="0.99215686274509807" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </buttonConfiguration>
                                                 <connections>
                                                     <action selector="randomNumberButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YT6-fT-K58"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="clip" translatesAutoresizingMaskIntoConstraints="NO" id="FY3-TE-eQ4">
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="clip" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FY3-TE-eQ4">
                                                 <rect key="frame" x="170" y="0.0" width="75" height="75"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="75" id="7tU-vk-h0X"/>
                                                 </constraints>
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="tinted">
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Button">
                                                     <attributedString key="attributedTitle">
                                                         <fragment content="Number in a range">
                                                             <attributes>
@@ -133,7 +128,16 @@
                                                             </attributes>
                                                         </fragment>
                                                     </attributedString>
-                                                    <color key="baseBackgroundColor" red="0.98083370920000001" green="0.96713715789999999" blue="0.99053007360000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <buttonConfiguration key="configuration" style="plain">
+                                                    <attributedString key="attributedTitle">
+                                                        <fragment content="Number in a range">
+                                                            <attributes>
+                                                                <font key="NSFont" size="12" name="Helvetica"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
                                                 </buttonConfiguration>
                                                 <connections>
                                                     <action selector="numberInARangeButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="J0V-ex-gaq"/>
@@ -150,14 +154,13 @@
                                                     <attributedString key="attributedTitle">
                                                         <fragment content="Multiple numbers">
                                                             <attributes>
-                                                                <font key="NSFont" size="13" name="Helvetica-Bold"/>
+                                                                <font key="NSFont" size="12" name="Helvetica"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
                                                     </attributedString>
-                                                    <color key="titleColor" red="0.1764705882" green="0.1764705882" blue="0.1764705882" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
-                                                <buttonConfiguration key="configuration" style="tinted">
+                                                <buttonConfiguration key="configuration" style="plain">
                                                     <attributedString key="attributedTitle">
                                                         <fragment content="Multiple numbers">
                                                             <attributes>
@@ -166,7 +169,6 @@
                                                             </attributes>
                                                         </fragment>
                                                     </attributedString>
-                                                    <color key="baseBackgroundColor" red="0.98083370920000001" green="0.96713715789999999" blue="0.99053007360000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </buttonConfiguration>
                                                 <connections>
                                                     <action selector="multipleNumbersButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="63h-Di-dEB"/>
@@ -181,7 +183,7 @@
                                         <rect key="frame" x="59" y="50" width="300" height="33.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="270" id="Suj-72-ACX"/>
-                                            <constraint firstAttribute="width" constant="300" id="xQ8-cq-Isu"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="xQ8-cq-Isu"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                         <nil key="textColor"/>
@@ -204,7 +206,7 @@
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jYK-td-ZqF">
-                                        <rect key="frame" x="44" y="650.5" width="70" height="17"/>
+                                        <rect key="frame" x="44" y="650" width="70" height="17"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="7cg-6f-78K"/>
                                         </constraints>
@@ -213,7 +215,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Just write any number here..." textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="dTc-W9-QUR">
-                                        <rect key="frame" x="44" y="675.5" width="330" height="44"/>
+                                        <rect key="frame" x="44" y="675" width="330" height="44"/>
                                         <color key="backgroundColor" red="0.98083370920000001" green="0.96713715789999999" blue="0.99053007360000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="pKi-cZ-clc"/>
@@ -226,10 +228,12 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="52" id="Bz0-ed-nTT"/>
                                         </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Display Fact">
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Display Fact"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Display Fact">
                                             <fontDescription key="titleFontDescription" type="boldSystem" pointSize="19"/>
-                                            <color key="baseBackgroundColor" red="0.50703936819999995" green="0.24599644540000001" blue="0.80126100779999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="displayFactButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="v3S-V3-tpO"/>
@@ -380,7 +384,7 @@
                     <connections>
                         <outlet property="displayFactButton" destination="uff-7G-7Fe" id="MZt-9a-doD"/>
                         <outlet property="multipleNumbersButton" destination="W9Q-nd-zIJ" id="D2a-nz-VI6"/>
-                        <outlet property="numberInARangeButton" destination="FY3-TE-eQ4" id="1yn-ZU-bqo"/>
+                        <outlet property="numberInRangeButton" destination="FY3-TE-eQ4" id="1yn-ZU-bqo"/>
                         <outlet property="numberTextField" destination="dTc-W9-QUR" id="37i-hY-H8w"/>
                         <outlet property="randomNumberButton" destination="8Nq-T9-tG9" id="mtF-u7-E7S"/>
                         <outlet property="scrollView" destination="ucf-uo-Ko1" id="B1h-Fh-jLi"/>
@@ -432,7 +436,7 @@
                         <constraints>
                             <constraint firstItem="z17-e1-nqN" firstAttribute="top" secondItem="mzg-qL-IJ8" secondAttribute="bottom" constant="30" id="1pB-ft-18G"/>
                             <constraint firstItem="mzg-qL-IJ8" firstAttribute="top" secondItem="4ef-4g-aMH" secondAttribute="top" constant="50" id="48A-al-NsU"/>
-                            <constraint firstItem="cPX-u3-7wL" firstAttribute="top" secondItem="4ef-4g-aMH" secondAttribute="top" id="4eB-Dk-kxs"/>
+                            <constraint firstItem="cPX-u3-7wL" firstAttribute="top" secondItem="4ef-4g-aMH" secondAttribute="top" constant="10" id="4eB-Dk-kxs"/>
                             <constraint firstItem="4ef-4g-aMH" firstAttribute="trailing" secondItem="z17-e1-nqN" secondAttribute="trailing" constant="20" id="9Wm-jY-SIo"/>
                             <constraint firstItem="z17-e1-nqN" firstAttribute="leading" secondItem="4ef-4g-aMH" secondAttribute="leading" constant="20" id="F4n-ts-9zf"/>
                             <constraint firstItem="mzg-qL-IJ8" firstAttribute="leading" secondItem="4ef-4g-aMH" secondAttribute="leading" constant="16" id="Feq-QB-AS7"/>
@@ -536,7 +540,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="CloseButton" width="24" height="24"/>
+        <image name="CloseButton" width="23.5" height="23.5"/>
         <image name="DiceImage" width="90" height="72"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
