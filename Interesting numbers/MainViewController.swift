@@ -80,13 +80,6 @@ class MainViewController: UIViewController {
     var selectedMode: SelectedMode = .userNumber
     private let showTextFactsSegueIdentifier = "showTextFactsSegue"
     
-    private let selectedButtonColor = ColorConstants.selectedButton
-    private let unSelectedButtonColor = ColorConstants.unSelectedButton
-    private let selectedTextColor = ColorConstants.selectedText
-    private let unselectedTextColor = ColorConstants.unselectedText
-    private let defaultBorderColor = ColorConstants.defaultBorder
-    private let shadowColor = ColorConstants.shadow
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         numberTextField.delegate = self
@@ -153,7 +146,7 @@ class MainViewController: UIViewController {
     }
     
     private func configureDisplayFactButton() {
-        displayFactButton.backgroundColor = selectedButtonColor
+        displayFactButton.backgroundColor = ColorConstants.selectedButton
         displayFactButton.setTitleColor(UIColor.white, for: .normal)
         displayFactButton.layer.cornerRadius = 10
     }
@@ -246,9 +239,9 @@ class MainViewController: UIViewController {
                        multipleNumbersButton]
         for button in buttons {
             if button === selectedButton {
-                configureButton(button, with: selectedButtonColor, textColor: selectedTextColor)
+                configureButton(button, with: ColorConstants.selectedButton, textColor: ColorConstants.selectedText)
             } else {
-                configureButton(button, with: unSelectedButtonColor, textColor: unselectedTextColor)
+                configureButton(button, with: ColorConstants.unSelectedButton, textColor: ColorConstants.unselectedText)
             }
         }
     }
