@@ -17,6 +17,8 @@
 		F09380462AA8824A000E0049 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F09380442AA8824A000E0049 /* Main.storyboard */; };
 		F09380482AA8824E000E0049 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F09380472AA8824E000E0049 /* Assets.xcassets */; };
 		F093804B2AA8824E000E0049 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F09380492AA8824E000E0049 /* LaunchScreen.storyboard */; };
+		F0ACF1C02ABC491E004A996F /* SelectedMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0ACF1BF2ABC491E004A996F /* SelectedMode.swift */; };
+		F0ACF1C22ABC4961004A996F /* UIErrorConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0ACF1C12ABC4961004A996F /* UIErrorConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		F09380472AA8824E000E0049 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F093804A2AA8824E000E0049 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F093804C2AA8824E000E0049 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F0ACF1BF2ABC491E004A996F /* SelectedMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedMode.swift; sourceTree = "<group>"; };
+		F0ACF1C12ABC4961004A996F /* UIErrorConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIErrorConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +126,8 @@
 				F09380422AA8824A000E0049 /* MainViewController.swift */,
 				F02622932AAF21C000B68802 /* TextViewController.swift */,
 				F081917C2AB1914400FE187D /* NumberFactService.swift */,
+				F0ACF1BF2ABC491E004A996F /* SelectedMode.swift */,
+				F0ACF1C12ABC4961004A996F /* UIErrorConstants.swift */,
 				F09380442AA8824A000E0049 /* Main.storyboard */,
 				F09380472AA8824E000E0049 /* Assets.xcassets */,
 				F09380492AA8824E000E0049 /* LaunchScreen.storyboard */,
@@ -282,6 +288,8 @@
 				F09380412AA8824A000E0049 /* SceneDelegate.swift in Sources */,
 				F081917D2AB1914400FE187D /* NumberFactService.swift in Sources */,
 				F02622942AAF21C000B68802 /* TextViewController.swift in Sources */,
+				F0ACF1C22ABC4961004A996F /* UIErrorConstants.swift in Sources */,
+				F0ACF1C02ABC491E004A996F /* SelectedMode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

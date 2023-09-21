@@ -7,66 +7,16 @@
 
 import UIKit
 
-enum ColorConstants {
-    static let selectedButton = UIColor(red: 0.50, green: 0.20, blue: 0.80, alpha: 1.00)
-    static let unSelectedButton = UIColor(red: 0.96, green: 0.94, blue: 0.98, alpha: 1.00)
-    static let selectedText = UIColor.white
-    static let unselectedText = UIColor.black
-    static let defaultBorder = UIColor(red: 0.96, green: 0.94, blue: 0.98, alpha: 1.00)
-    static let shadow = UIColor.black.cgColor
-}
-
-enum SelectedMode: String {
-    case userNumber = "userNumber"
-    case randomNumber = "randomNumber"
-    case numberInRange = "numberInRange"
-    case multipleNumbers = "multipleNumbers"
-    
-    var placeholderText: String {
-        switch self {
-        case .userNumber:
-            return "Just write any number here..."
-        case .multipleNumbers:
-            return "Write several numbers separated by a comma"
-        case .randomNumber:
-            return "Click the button below"
-        case .numberInRange:
-            return "Write the range by a comma (min,max)"
-        }
-    }
-}
-
-enum UIErrorConstants: Error {
-    case emptyNumber
-    case emptyRange
-    case unknownMode
-    case invalidRangeFormat
-    case invalidRangeValues
-    case networkError
-    
-    var title: String {
-        return "Error"
-    }
-    
-    var message: String {
-        switch self {
-        case .emptyNumber:
-            return "User number is empty"
-        case .emptyRange:
-            return "The range is empty"
-        case .unknownMode:
-            return "Unknown mode"
-        case .invalidRangeFormat:
-            return "Invalid range format. Required format: min,max"
-        case .invalidRangeValues:
-            return "The second number must be greater than the first"
-        case .networkError:
-            return "Network error. Check your internet connection"
-        }
-    }
-}
-
 class MainViewController: UIViewController {
+    
+    private enum ColorConstants {
+        static let selectedButton = UIColor(red: 0.50, green: 0.20, blue: 0.80, alpha: 1.00)
+        static let unSelectedButton = UIColor(red: 0.96, green: 0.94, blue: 0.98, alpha: 1.00)
+        static let selectedText = UIColor.white
+        static let unselectedText = UIColor.black
+        static let defaultBorder = UIColor(red: 0.96, green: 0.94, blue: 0.98, alpha: 1.00)
+        static let shadow = UIColor.black.cgColor
+    }
     
     @IBOutlet weak var userNumberButton: UIButton!
     @IBOutlet weak var randomNumberButton: UIButton!
@@ -78,7 +28,7 @@ class MainViewController: UIViewController {
     
     let factService = NumberFactService()
     var selectedMode: SelectedMode = .userNumber
-    private let showTextFactsSegueIdentifier = "showTextFactsSegue"
+    static let showTextFactsSegueIdentifier = "showTextFactsSegue"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,7 +42,7 @@ class MainViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == showTextFactsSegueIdentifier {
+        if segue.identifier == MainViewController.showTextFactsSegueIdentifier {
             if let destinationVC = segue.destination as? TextViewController,
                let factText = sender as? String {
                 destinationVC.factText = factText
@@ -204,7 +154,7 @@ class MainViewController: UIViewController {
             switch result {
             case .success(let fact):
                 DispatchQueue.main.async {
-                    self?.performSegue(withIdentifier: self?.showTextFactsSegueIdentifier ?? "", sender: fact)
+                    self?.performSegue(withIdentifier: MainViewController.showTextFactsSegueIdentifier, sender: fact)
                 }
             case .failure(_):
                 self?.showAlert(type: .networkError)
