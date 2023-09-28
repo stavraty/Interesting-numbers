@@ -5,37 +5,65 @@
 //  Created by AS on 16.09.2023.
 //
 
+@testable import Interesting_numbers
 import XCTest
 
-final class Interesting_numbers_UITests: XCTestCase {
-
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
+class InterestingNumbersUITests: XCTestCase {
+    
+    var app: XCUIApplication!
+    
+    override func setUp() {
+        super.setUp()
+        app = XCUIApplication()
         continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // UI tests must launch the application that they test.
-        let app = XCUIApplication()
         app.launch()
-
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
     }
-
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
-        }
+    
+    func waitForElementToAppear(_ element: XCUIElement, timeout: TimeInterval = 5) {
+        let existsPredicate = NSPredicate(format: "exists == true")
+        expectation(for: existsPredicate, evaluatedWith: element, handler: nil)
+        waitForExpectations(timeout: timeout, handler: nil)
+    }
+    
+    func testUserNumberMode() {
+        app.buttons["userNumberModeButton"].tap()
+        app.textFields["numberInput"].tap()
+        app.textFields["numberInput"].typeText("15")
+        app.buttons["displayFactButton"].tap()
+        
+        let factLabel = app.staticTexts["factLabel"]
+        waitForElementToAppear(factLabel)
+        XCTAssertTrue(factLabel.exists)
+    }
+    
+    func testRandomNumberMode() {
+        app.buttons["randomNumberModeButton"].tap()
+        app.buttons["displayFactButton"].tap()
+        
+        let factLabel = app.staticTexts["factLabel"]
+        waitForElementToAppear(factLabel)
+        XCTAssertTrue(factLabel.exists)
+    }
+    
+    func testNumberInRangeMode() {
+        app.buttons["numberInRangeModeButton"].tap()
+        app.textFields["numberInput"].tap()
+        app.textFields["numberInput"].typeText("10,20")
+        app.buttons["displayFactButton"].tap()
+        
+        let factLabel = app.staticTexts["factLabel"]
+        waitForElementToAppear(factLabel)
+        XCTAssertTrue(factLabel.exists)
+    }
+    
+    func testMultipleNumbersMode() {
+        app.buttons["multipleNumbersModeButton"].tap()
+        app.textFields["numberInput"].tap()
+        app.textFields["numberInput"].typeText("10,15,20")
+        app.buttons["displayFactButton"].tap()
+        
+        let factLabel = app.staticTexts["factLabel"]
+        waitForElementToAppear(factLabel)
+        XCTAssertTrue(factLabel.exists)
     }
 }

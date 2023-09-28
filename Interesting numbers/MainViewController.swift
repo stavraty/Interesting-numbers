@@ -26,7 +26,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var displayFactButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
     
-    let factService = NumberFactService()
+    var factService = NumberFactService()
     var selectedMode: SelectedMode = .userNumber
     static let showTextFactsSegueIdentifier = "showTextFactsSegue"
     
