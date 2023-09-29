@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import NumberFactsCore
 
 class MainViewController: UIViewController {
     

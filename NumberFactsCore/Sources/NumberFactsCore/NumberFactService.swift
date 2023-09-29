@@ -6,15 +6,17 @@
 //
 import Foundation
 
-class NumberFactService {
+public class NumberFactService {
     
-    let baseURL = "http://numbersapi.com/"
+    public init() {}
     
-    func getFact(number: String, type: String, completion: @escaping (Result<String, Error>) -> Void) {
+    private let baseURL = "http://numbersapi.com/"
+    
+    public func getFact(number: String, type: String, completion: @escaping (Result<String, Error>) -> Void) {
         getFactUsingURL("\(baseURL)\(number)/\(type)", completion: completion)
     }
     
-    func getFactInRange(min: String, max: String, completion: @escaping (Result<String, Error>) -> Void) {
+    public func getFactInRange(min: String, max: String, completion: @escaping (Result<String, Error>) -> Void) {
         getFactUsingURL("\(baseURL)random?min=\(min)&max=\(max)", completion: completion)
     }
     

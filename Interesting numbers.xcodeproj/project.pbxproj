@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		F02622942AAF21C000B68802 /* TextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02622932AAF21C000B68802 /* TextViewController.swift */; };
-		F081917D2AB1914400FE187D /* NumberFactService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F081917C2AB1914400FE187D /* NumberFactService.swift */; };
 		F08757122AB6149000684ED9 /* Interesting_numbers_Unit_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08757112AB6149000684ED9 /* Interesting_numbers_Unit_Tests.swift */; };
 		F087571F2AB614C900684ED9 /* Interesting_numbers_UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F087571E2AB614C900684ED9 /* Interesting_numbers_UITests.swift */; };
 		F093803F2AA8824A000E0049 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F093803E2AA8824A000E0049 /* AppDelegate.swift */; };
@@ -19,6 +18,7 @@
 		F093804B2AA8824E000E0049 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F09380492AA8824E000E0049 /* LaunchScreen.storyboard */; };
 		F0ACF1C02ABC491E004A996F /* SelectedMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0ACF1BF2ABC491E004A996F /* SelectedMode.swift */; };
 		F0ACF1C22ABC4961004A996F /* UIErrorConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0ACF1C12ABC4961004A996F /* UIErrorConstants.swift */; };
+		F0DFE0CB2AC6E71600207753 /* NumberFactsCore in Frameworks */ = {isa = PBXBuildFile; productRef = F0DFE0CA2AC6E71600207753 /* NumberFactsCore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,7 +40,6 @@
 
 /* Begin PBXFileReference section */
 		F02622932AAF21C000B68802 /* TextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewController.swift; sourceTree = "<group>"; };
-		F081917C2AB1914400FE187D /* NumberFactService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFactService.swift; sourceTree = "<group>"; };
 		F087570F2AB6148F00684ED9 /* Interesting numbers Unit Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Interesting numbers Unit Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F08757112AB6149000684ED9 /* Interesting_numbers_Unit_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interesting_numbers_Unit_Tests.swift; sourceTree = "<group>"; };
 		F087571C2AB614C900684ED9 /* Interesting numbers UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Interesting numbers UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0DFE0CB2AC6E71600207753 /* NumberFactsCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,7 +125,6 @@
 				F09380402AA8824A000E0049 /* SceneDelegate.swift */,
 				F09380422AA8824A000E0049 /* MainViewController.swift */,
 				F02622932AAF21C000B68802 /* TextViewController.swift */,
-				F081917C2AB1914400FE187D /* NumberFactService.swift */,
 				F0ACF1BF2ABC491E004A996F /* SelectedMode.swift */,
 				F0ACF1C12ABC4961004A996F /* UIErrorConstants.swift */,
 				F09380442AA8824A000E0049 /* Main.storyboard */,
@@ -188,6 +187,9 @@
 			dependencies = (
 			);
 			name = "Interesting numbers";
+			packageProductDependencies = (
+				F0DFE0CA2AC6E71600207753 /* NumberFactsCore */,
+			);
 			productName = "Interesting numbers";
 			productReference = F093803B2AA8824A000E0049 /* Interesting numbers.app */;
 			productType = "com.apple.product-type.application";
@@ -224,6 +226,9 @@
 				Base,
 			);
 			mainGroup = F09380322AA8824A000E0049;
+			packageReferences = (
+				F0DFE0C92AC6E71600207753 /* XCRemoteSwiftPackageReference "NumberFactsCore" */,
+			);
 			productRefGroup = F093803C2AA8824A000E0049 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -286,7 +291,6 @@
 				F09380432AA8824A000E0049 /* MainViewController.swift in Sources */,
 				F093803F2AA8824A000E0049 /* AppDelegate.swift in Sources */,
 				F09380412AA8824A000E0049 /* SceneDelegate.swift in Sources */,
-				F081917D2AB1914400FE187D /* NumberFactService.swift in Sources */,
 				F02622942AAF21C000B68802 /* TextViewController.swift in Sources */,
 				F0ACF1C22ABC4961004A996F /* UIErrorConstants.swift in Sources */,
 				F0ACF1C02ABC491E004A996F /* SelectedMode.swift in Sources */,
@@ -336,7 +340,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = DTNM4439C9;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = fox.Interesting.numbers.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -355,7 +359,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = DTNM4439C9;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = fox.Interesting.numbers.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -373,7 +377,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = DTNM4439C9;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "fox.Interesting.numbers.UItests.Interesting-numbers-UITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -391,7 +395,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = DTNM4439C9;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "fox.Interesting.numbers.UItests.Interesting-numbers-UITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -612,6 +616,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F0DFE0C92AC6E71600207753 /* XCRemoteSwiftPackageReference "NumberFactsCore" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/stavraty/NumberFactsCore";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F0DFE0CA2AC6E71600207753 /* NumberFactsCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F0DFE0C92AC6E71600207753 /* XCRemoteSwiftPackageReference "NumberFactsCore" */;
+			productName = NumberFactsCore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F09380332AA8824A000E0049 /* Project object */;
 }
