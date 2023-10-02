@@ -7,6 +7,7 @@
 
 @testable import Interesting_numbers
 import XCTest
+import NumberFactsCore
 
 class NumberFactServiceIntegrationTests: XCTestCase {
     
